@@ -1,3 +1,61 @@
 body {
-    background-color: blue;
+    background-size: cover;
+    opacity: 1;
+}
+
+.header {
+    background-image: url(./animals.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 45vh;
+}
+@media  screen and (max-width: 670px) {
+    .header{
+        min-height: 200px;
+    }
+}
+
+h1 {
+    color: purple;
+    text-align: center;
+    padding: none;
+    text-shadow: 3px 3px pink;
+}
+
+.content {
+    text-align: center;
+    text-shadow: 0.5px 0.5px rgb(167, 167, 21);
+    color: rgb(117, 21, 21);
+}
+
+
+.nav-wrapper {
+    position: fixed;
+}
+.row {
+    max-width: 100%;
+    max-height: fit-content;
+}
+
+.category-btn:hover {
+    border-color: rgb(172, 184, 6);
+}
+
+.filter-btn:hover {
+    border-color: rgb(172, 184, 6);
+}
+
+.card-1 {
+    background-image: url(./owl.jpg);
+    background-repeat: no-repeat;
+    color: rgb(170, 75, 46);
+    text-shadow: 0.5px 0.5px rgb(167, 167, 21);
+}
+
+.card-2 {
+    background-image: url(./flowers.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-shadow: 0.5px 0.5px rgb(167, 167, 21);
+    color: rgb(45, 115, 148);
 }
