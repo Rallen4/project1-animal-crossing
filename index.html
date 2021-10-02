@@ -1,12 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"/>
+
+    <title>Animal Crossing</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav-wrapper">
+        <div class="container">
+          <a href="" class="game">Click Here to Play!</a>
+          <a href="" class="sidenav-trigger" data-target="mobile-menu">
+            <i class="material-icons">menu icon</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">Creators</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="#">Filter</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <ul class="sidenav grey lighten-2" id="mobile-menu">
+            <li><a href="#">Creators</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="#">Filter</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <h1 id="ACNH">Animal Crossing x New Horizon</h1>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card-1">
+                    <div class="card-image">
+                        <img src=""/>
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Category</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item disabled" aria-disabled="true">Category 1</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Category 2</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Category 3</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Category 4</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Category 5</li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <button class="category-btn">Choose Categories</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card-2">
+                    <div class="card-image">
+                        <img src="" />
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Filter</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item disabled" aria-disabled="true">Item 1</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Item 2</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Item 3</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Item 4</li>
+                            <li class="list-group-item disabled" aria-disabled="true">Item 5</li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <button class="filter-btn">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <table class="content">
+                <tr>
+                  <th>Name</th>
+                  <th>Location</th>
+                  <th>Tool</th>
+                  <th>Price</th>
+                </tr>
+              </table>
+        </div>
+    </div>
+
+    </body>
+    <script src="script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </html>
