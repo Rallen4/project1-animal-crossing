@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-    background-image: url(./animals.jpg);
+    background-image: url(./img/animals.jpg);
     background-size: cover;
     background-position: center;
     min-height: 45vh;
@@ -46,14 +46,14 @@ h1 {
 }
 
 .card-1 {
-    background-image: url(./owl.jpg);
+    background-image: url(./img/owl.jpg);
     background-repeat: no-repeat;
     color: rgb(170, 75, 46);
     text-shadow: 0.5px 0.5px rgb(167, 167, 21);
 }
 
 .card-2 {
-    background-image: url(./flowers.png);
+    background-image: url(./img/flowers.png);
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0.5px 0.5px rgb(167, 167, 21);
