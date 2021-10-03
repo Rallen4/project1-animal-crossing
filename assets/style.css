@@ -15,12 +15,11 @@ body {
     }
 }
 
-h1 {
+/* h1 {
     color: purple;
-    text-align: center;
     padding: none;
     text-shadow: 3px 3px pink;
-}
+} */
 
 .content {
     text-align: center;
@@ -32,12 +31,12 @@ h1 {
 .nav-wrapper {
     position: fixed;
 }
-.row {
+/* .row {
     max-width: 100%;
     max-height: fit-content;
-}
+} */
 
-.category-btn:hover {
+.category-submit:hover {
     border-color: rgb(172, 184, 6);
 }
 
@@ -47,8 +46,8 @@ h1 {
 
 .card-1 {
     background-image: url(./img/owl.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
-    color: rgb(170, 75, 46);
     text-shadow: 0.5px 0.5px rgb(167, 167, 21);
 }
 
@@ -57,5 +56,4 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0.5px 0.5px rgb(167, 167, 21);
-    color: rgb(45, 115, 148);
 }
