@@ -48,12 +48,12 @@ body {
     background-image: url(./img/owl.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0.5px 0.5px rgb(167, 167, 21);
+    text-shadow: 0.5px 0.5px black;
 }
 
 .card-2 {
     background-image: url(./img/flowers.png);
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0.5px 0.5px rgb(167, 167, 21);
+    text-shadow: 0.5px 0.5px black;
 }

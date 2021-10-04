@@ -21,8 +21,8 @@
     <header class="header">
       <nav class="nav-wrapper">
         <div class="container">
-          <a href="" class="game">Villager Data Source</a>
-          <a href="./pages/villagers.html" class="sidenav-trigger" data-target="mobile-menu">
+          <a href="./pages/villagers.html" class="game">Villager Data Source</a>
+          <a href="" class="sidenav-trigger" data-target="mobile-menu">
             <i class="material-icons">menu icon</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="#">Creators</a></li>
@@ -57,8 +57,38 @@
                           <!-- Option 1 -->
                           <p class="list-group-item">
                             <label>
-                              <input type="checkbox" class="filled-in category-btn sidebar-btn" checked/>
+                              <input type="checkbox" class="filled-in category-btn sidebar-btn" id="bugs" checked/>
+                              <span>Bugs</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in category-btn sidebar-btn" id="fish" checked/>
                               <span>Fish</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in category-btn sidebar-btn" id="sea-creatures" checked/>
+                              <span>Sea Creatures</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in category-btn sidebar-btn" id="fossils" checked/>
+                              <span>Fossils</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in category-btn sidebar-btn" id="art" checked/>
+                              <span>Art</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in category-btn sidebar-btn" id="songs" checked/>
+                              <span>Songs</span>
                             </label>
                           </p>
                         </ul>
@@ -82,8 +112,32 @@
                         <ul class="list-group">
                           <p class="list-group-item">
                             <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn"/>
-                              <span>Hide Completed</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="name"/>
+                              <span>Name</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="location" />
+                              <span>Location</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="price" />
+                              <span>Price</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="rarity" />
+                              <span>Rarity</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>Month</span>
                             </label>
                           </p>
                         </ul>
