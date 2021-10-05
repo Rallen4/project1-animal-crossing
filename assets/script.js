@@ -122,7 +122,6 @@ function getFish() {
         )
 }
 
-<<<<<<< HEAD
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
 
@@ -151,9 +150,6 @@ function filterAll() {
     }
 
 }
-=======
-
->>>>>>> dev
 
 console.log();
 
@@ -535,9 +531,6 @@ function getVillagers(){
             colLocation.innerText = data.hobby;
         })
     } 
-<<<<<<< HEAD
-}
-=======
 }
 
 function filterCompleted() {
@@ -584,4 +577,3 @@ function filterPrice() {
       x.style.display = "none";
     }
   }
->>>>>>> dev
