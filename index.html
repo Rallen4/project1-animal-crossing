@@ -78,31 +78,37 @@
                         <ul class="list-group">
                           <p class="list-group-item">
                             <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="name"/>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="completed-filter"/>
+                              <span>Completed</span>
+                            </label>
+                          </p>
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="name-filter"/>
                               <span>Name</span>
                             </label>
                           </p>
                           <p class="list-group-item">
                             <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="location" />
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="location-filter" />
                               <span>Location</span>
                             </label>
                           </p>
                           <p class="list-group-item">
                             <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="price" />
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="price-filter" />
                               <span>Price</span>
                             </label>
                           </p>
                           <p class="list-group-item">
                             <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="rarity" />
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="rarity-filter" />
                               <span>Rarity</span>
                             </label>
                           </p>
                           <p class="list-group-item">
                             <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month-filter" />
                               <span>Month</span>
                             </label>
                           </p>
@@ -110,7 +116,7 @@
                     </div>
                     <!-- Filter Submit -->
                     <div class="card-action">
-                        <button class="filter-btn">Filter</button>
+                        <button onclick="filterAll()" class="filter-btn">Filter</button>
                     </div>
                 </div>
       </div>
