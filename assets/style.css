@@ -57,3 +57,16 @@ body {
     background-repeat: no-repeat;
     text-shadow: 0.5px 0.5px black;
 }
+
+.categories{
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryBtn{
+    margin: 5px 10px;
+}
+
+.box-titles{
+    margin: 0px;
+}
