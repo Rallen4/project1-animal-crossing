@@ -23,14 +23,14 @@
         <div class="container">
           <a href="" class="sidenav-trigger" data-target="mobile-menu">
             <i class="material-icons">menu icon</i></a>
-          <ul class="right hide-on-med-and-down">
+          <ul class="left hide-on-med-and-down">
             <li><a href="./pages/villagers.html">Villager Data Source</a></li>
-            <li><a href="#">Repository</a></li>
+            <li><a href="https://github.com/Rallen4/project1-animal-crossing">GitHub Repository</a></li>
             <li><a href="#">Creators</a></li>
           </ul>
           <ul class="sidenav grey lighten-2" id="mobile-menu">
             <li><a href="./pages/villagers.html">Villager Data Source</a></li>
-            <li><a href="#">Repository</a></li>
+            <li><a href="#">GitHub Repository</a></li>
             <li><a href="#">Creators</a></li>
           </ul>
         </div>
@@ -52,12 +52,12 @@
                   <!-- Category Options -->
                         <ul class="list-group">
                           <!-- Option 1 -->
-                              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFish()">Fish</a>
-                              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSeaCreatures()">Sea Creatures</a>
-                              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getBugs()">Bugs</a>
-                              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFossils()">Fossils</a>
-                              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSongs()">Songs</a>
-                              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getArt()">Art</a>
+                              <button class="category-btn" onclick="getFish()">Fish</button>
+                              <button class="category-btn" onclick="getSeaCreatures()">Sea Creatures</button>
+                              <button class="category-btn" onclick="getBugs()">Bugs</button>
+                              <button class="category-btn" onclick="getFossils()">Fossils</button>
+                              <button class="category-btn" onclick="getSongs()">Songs</button>
+                              <button class="category-btn" onclick="getArt()">Art</button>
                         </ul>
                     </div>
                 </div>
@@ -119,9 +119,9 @@
                         <div id="rarity-btn">
                           <p id="list-group-item">
                             <label>
-                              <input type="checkbox" class="checkboxes" id="rarity" />
+                              <input type="checkbox" class="checkboxes" id="rarity-common" />
                               <span>Common</span>
-                              <input type="checkbox" class="checkboxes" id="rarity" />
+                              <input type="checkbox" class="checkboxes" id="rarity-rare" />
                               <span>Rare</span>
                             </label>
                           </p>
