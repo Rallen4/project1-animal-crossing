@@ -73,69 +73,69 @@ function getFish() {
         )
 }
 
-// function getSeaCreatures() {
-//     var seaUrl = "http://acnhapi.com/v1/sea/";
+function getSeaCreatures() {
+    var seaUrl = "http://acnhapi.com/v1/sea/";
 
-//     fetch(seaUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             var allData = data;
-//             // creates array of keys of the data (all of the sea creature names that we need for URLs)
-//             var seaNames = Object.keys(allData);
-//             // pushes all names into empty array
-//             allSeaCreatures.push(seaNames)
-//         })
-// }
+    fetch(seaUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var allData = data;
+            // creates array of keys of the data (all of the sea creature names that we need for URLs)
+            var seaNames = Object.keys(allData);
+            // pushes all names into empty array
+            allSeaCreatures.push(seaNames)
+        })
+}
 
-// function getBugs() {
-//     var bugUrl = "http://acnhapi.com/v1/bugs/"
+function getBugs() {
+    var bugUrl = "http://acnhapi.com/v1/bugs/"
 
-//     fetch(bugUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             var allData = data;
-//             // creates array of keys for data (bug names needed for new URLs)
-//             var bugNames = Object.keys(allData);
-//             // pushes all names into empty bug array
-//             allBugs.push(bugNames);
-//         })
-// }
+    fetch(bugUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var allData = data;
+            // creates array of keys for data (bug names needed for new URLs)
+            var bugNames = Object.keys(allData);
+            // pushes all names into empty bug array
+            allBugs.push(bugNames);
+        })
+}
 
-// function getFossils() {
-//     var fossilUrl = "http://acnhapi.com/v1/fossils/"
+function getFossils() {
+    var fossilUrl = "http://acnhapi.com/v1/fossils/"
 
-//     fetch(fossilUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             var allData = data;
-//             // new array data for fossils
-//             var fossilNames = Object.keys(allData);
-//             // push into empty array to be used for URLs
-//             allFossils.push(fossilNames)
-//         })
-// }
+    fetch(fossilUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var allData = data;
+            // new array data for fossils
+            var fossilNames = Object.keys(allData);
+            // push into empty array to be used for URLs
+            allFossils.push(fossilNames)
+        })
+}
 
-// function getSongs() {
-//     var songUrl = "http://acnhapi.com/v1/songs/"
+function getSongs() {
+    var songUrl = "http://acnhapi.com/v1/songs/"
 
-//     fetch(songUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             var allData = data;
+    fetch(songUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var allData = data;
 
-//         })
-// }
+        })
+}
 
-// function getArt() {
-//     var artUrl = "http://acnhapi.com/v1/art/"
+function getArt() {
+    var artUrl = "http://acnhapi.com/v1/art/"
 
 function getVillagers(){
     for (i=0; i < villagers.length; i++){
