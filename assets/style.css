@@ -1,6 +1,7 @@
 body {
     background-size: cover;
     opacity: 1;
+    font-family:'Roboto',sans-serif;
 }
 
 .header {
@@ -36,6 +37,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0.7px 0.7px rgb(25, 165, 153);
+    color:rgb(238, 231, 222)
     /* min-height: 400px; */
 }
 
@@ -45,8 +47,44 @@ body {
     background-repeat: no-repeat;
     text-shadow: 0.7px 0.7px rgb(25, 165, 153);
     min-height: 400px;
+    justify-content: center;
+    align-items: center;
 }
 
+#location-btn, #price-btn, #completed-btn, #month-btn, #rarity-btn {
+    display: none;
+
+    /* grid-template-columns: auto; */
+}
+
+button {
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#0b9287;
+    text-align:center;
+    transition: all 0.2s;
+}
+button:hover{
+    color:#c95252;
+    background-color:#FFFFFF;
+}
+@media all and (max-width:30em){
+    button{
+        display: block;
+        margin: 0.4em auto;
+}
+}
+
+.checkboxes {
+    color: black;
+}
 #header-checkbox {
     width:5%
 }
