@@ -63,22 +63,22 @@ function getFish() {
         // reformatting data to fit needs
         .then(function (data) {
             data = Object.values(data);
-            // console.log(data);
+            console.log(data);
             
             $(data).each(function (i, e) {
                 // create new row under the header
-                var newRow = mainContent.insertRow(-1);
+                var newRow = mainContent.insertRow(1);
                 // inserts a cell in the first column "checkbox"
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="fish line-item" onclick="toggleCompletion(event)" type="checkbox" data-fish-id="` +  e.name['name-USen'] + `"/>
+                <input class="fish" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fish-id="` +  e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
                 var colImg = newRow.insertCell(1);
                 // populating cell with img
-                colImg.innerHTML = `<img src="` + e.image_uri + `" style="width:100px" alt="item img">`;
+                colImg.innerHTML = `<img src="` + e.image_uri + `" style="width:48px" alt="item img">`;
                 // create Name cell
                 var colName = newRow.insertCell(2);
                 // add name to name cell
@@ -103,11 +103,11 @@ function getFish() {
                 colMonths.innerText = e.availability["month-northern"];
                 
                 var fishName= e.name['name-USen'];
-                // console.log(fishName);
+                console.log(fishName);
                 var checkbox = document.querySelector(`input[data-fish-id="` + fishName + `"]`);
-                // console.log(checkbox, checkbox.checked)
+                console.log(checkbox, checkbox.checked)
                 var fishValue = localStorage.getItem(fishName)
-                // console.log(fishValue, typeof fishValue);
+                console.log(fishValue, typeof fishValue);
 
                 if (localStorage.getItem(fishName) == undefined) {
                     localStorage.setItem(fishName, checkbox.checked);
@@ -115,15 +115,14 @@ function getFish() {
                     checkbox.checked= fishValue == "true"
                 }
 
-                // console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-fish-id"));
+                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-fish-id"));
             });
 
         }
         )
 }
-var rowCount = mainContent.rows.length
-var tableRow = document.getElementsByClassName("line-item")
 
+<<<<<<< HEAD
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
 
@@ -152,6 +151,9 @@ function filterAll() {
     }
 
 }
+=======
+
+>>>>>>> dev
 
 console.log();
 
@@ -326,11 +328,11 @@ function getFossils() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add Location to Location Cell
-                colLocation.innerText = e.availability.location;
+                colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add rarity to rarity cell
-                colRarity.innerText = e.availability.rarity;
+                colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
                 // add price to price cell
@@ -338,7 +340,7 @@ function getFossils() {
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
-                colMonths.innerText = e.availability["month-northern"];
+                colMonths.innerText = "N/A";
                 
                 var fossilName= e.name['name-USen'];
                 console.log(fossilName);
@@ -394,19 +396,19 @@ function getSongs() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add Location to Location Cell
-                colLocation.innerText = e.availability.location;
+                colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add rarity to rarity cell
-                colRarity.innerText = e.availability.rarity;
+                colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
-                // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                // add price to price cell: Fix this!!!!!
+                colPrice.innerText = "N/A";
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
-                colMonths.innerText = e.availability["month-northern"];
+                colMonths.innerText = "N/A";
                 
                 var songName= e.name['name-USen'];
                 console.log(songName);
@@ -461,19 +463,19 @@ function getArt() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add Location to Location Cell
-                colLocation.innerText = e.availability.location;
+                colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add rarity to rarity cell
-                colRarity.innerText = e.availability.rarity;
+                colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
                 // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                colPrice.innerText = "N/A";
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
-                colMonths.innerText = e.availability["month-northern"];
+                colMonths.innerText = "N/A";
                 
                 var artName= e.name['name-USen'];
                 console.log(artName);
@@ -533,4 +535,53 @@ function getVillagers(){
             colLocation.innerText = data.hobby;
         })
     } 
+<<<<<<< HEAD
 }
+=======
+}
+
+function filterCompleted() {
+    var x = document.getElementById("completed-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+function filterLocation() {
+    var x = document.getElementById("location-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+function filterPrice() {
+    var x = document.getElementById("price-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function filterRarity() {
+    var x = document.getElementById("rarity-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function filterMonth() {
+    var x = document.getElementById("month-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+>>>>>>> dev
