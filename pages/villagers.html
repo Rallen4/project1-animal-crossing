@@ -16,13 +16,22 @@
   <header class="header">
     <nav class="nav-wrapper">
       <div class="container">
-        <a href="../index.html" class="game">Click Here to Return!</a>
         <a href="" class="sidenav-trigger" data-target="mobile-menu">
           <i class="material-icons">menu icon</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="../index.html">Villager Data Source</a></li>
+            <li><a href="#">Repository</a></li>
+            <li><a href="#">Creators</a></li>
+          </ul>
+          <ul class="sidenav grey lighten-2" id="mobile-menu">
+            <li><a href="../index.html">Villager Data Source</a></li>
+            <li><a href="#">Repository</a></li>
+            <li><a href="#">Creators</a></li>
+          </ul>
       </div>
     </nav>
   </header>
-    <h1>Villager Data Below</h1>
+    <h1 id="village-header">Villager Data Below</h1>
       <div class="col s8" id="villagerDiv">
         <!-- Table Header -->
         <table class="striped" id="villagerTable">

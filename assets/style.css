@@ -15,11 +15,6 @@ body {
     }
 }
 
-/* h1 {
-    color: purple;
-    padding: none;
-    text-shadow: 3px 3px pink;
-} */
 
 .content {
     text-align: center;
@@ -27,14 +22,6 @@ body {
     color: rgb(117, 21, 21);
 }
 
-
-.nav-wrapper {
-    /* position: fixed; */
-}
-/* .row {
-    max-width: 100%;
-    max-height: fit-content;
-} */
 
 .category-submit:hover {
     border-color: rgb(172, 184, 6);
@@ -48,7 +35,7 @@ body {
     /* background-image: url(./img/owl.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0.5px 0.5px black;
+    text-shadow: 0.7px 0.7px rgb(25, 165, 153);
     /* min-height: 400px; */
 }
 
@@ -56,13 +43,10 @@ body {
     background-image: url(./img/flowers.png);
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0.5px 0.5px black;
+    text-shadow: 0.7px 0.7px rgb(25, 165, 153);
     min-height: 400px;
 }
 
-.list-group {
-    align-items: flex-end;
-}
 #header-checkbox {
     width:5%
 }
@@ -111,3 +95,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+#village-header {
+    text-align: center;
+    text-shadow: 0.5px 0.5px red;
+}
+

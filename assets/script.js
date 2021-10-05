@@ -216,11 +216,48 @@ function getVillagers(){
     } 
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
 
-  // Or with jQuery
+function filterCompleted() {
+    var x = document.getElementById("completed-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
 
-  $('.dropdown-trigger').dropdown();
+function filterLocation() {
+    var x = document.getElementById("location-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+function filterPrice() {
+    var x = document.getElementById("price-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function filterRarity() {
+    var x = document.getElementById("rarity-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function filterMonth() {
+    var x = document.getElementById("month-btn");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
