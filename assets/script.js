@@ -32,22 +32,22 @@ function getFish() {
         // reformatting data to fit needs
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
+            // console.log(data);
             
             $(data).each(function (i, e) {
                 // create new row under the header
-                var newRow = mainContent.insertRow(1);
+                var newRow = mainContent.insertRow(-1);
                 // inserts a cell in the first column "checkbox"
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="fish" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fish-id="` +  e.name['name-USen'] + `"/>
+                <input class="fish line-item" onclick="toggleCompletion(event)" type="checkbox" data-fish-id="` +  e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
                 var colImg = newRow.insertCell(1);
                 // populating cell with img
-                colImg.innerHTML = `<img src="` + e.image_uri + `" style="width:48px" alt="item img">`;
+                colImg.innerHTML = `<img src="` + e.image_uri + `" style="width:100px" alt="item img">`;
                 // create Name cell
                 var colName = newRow.insertCell(2);
                 // add name to name cell
@@ -70,11 +70,11 @@ function getFish() {
                 colMonths.innerText = e.availability["month-northern"];
                 
                 var fishName= e.name['name-USen'];
-                console.log(fishName);
+                // console.log(fishName);
                 var checkbox = document.querySelector(`input[data-fish-id="` + fishName + `"]`);
-                console.log(checkbox, checkbox.checked)
+                // console.log(checkbox, checkbox.checked)
                 var fishValue = localStorage.getItem(fishName)
-                console.log(fishValue, typeof fishValue);
+                // console.log(fishValue, typeof fishValue);
 
                 if (localStorage.getItem(fishName) == undefined) {
                     localStorage.setItem(fishName, checkbox.checked);
@@ -82,14 +82,26 @@ function getFish() {
                     checkbox.checked= fishValue == "true"
                 }
 
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-fish-id"));
+                // console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-fish-id"));
             });
 
         }
         )
 }
+var rowCount = mainContent.rows.length
+var tableRow = document.getElementsByClassName("line-item")
 
+function filterAll() {
 
+    $(".line-item").each(function () {
+        // console.log($(this)[0].checked)
+        if ($(this)[0].checked == true) {
+            console.log("hello");
+            $(this).parent().parent().parent().css("display", "none")
+        }
+        
+    })
+}
 
 function getSeaCreatures() {
     var seaUrl = "http://acnhapi.com/v1/sea/";
