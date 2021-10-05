@@ -608,8 +608,8 @@ function renderVillagers(data) {
         allNames.sort();
         for (let i = 0; i < allNames.length; i++) {
             console.log(allNames[i])
-            if(allNames[i]===colName.innerText){
-                console.log("matched!!")
+            if(allNames[i]===colName.innerText[i]){
+                console.log("okay :)")
             }
         }
     })
