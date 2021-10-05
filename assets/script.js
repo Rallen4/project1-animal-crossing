@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-var mainContent = document.querySelector(".content")
-=======
 var mainContent = document.querySelector(".content");
 var villagerIcon;
->>>>>>> dev
 var allFish = [];
 var allSeaCreatures = [];
 var allBugs = [];
