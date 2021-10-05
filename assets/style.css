@@ -98,11 +98,15 @@ body {
 
 #villagerTable{
     margin: 10px;
-    width: 1000px;
+    width: 85%;
 }
 
 #villagerDiv{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#villager-name, #villager-birthday, #villager-hobbies, #villager-personality:hover{
+    cursor: pointer;
 }
