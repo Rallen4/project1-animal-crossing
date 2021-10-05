@@ -58,6 +58,7 @@ body {
     text-shadow: 0.5px 0.5px black;
 }
 
+<<<<<<< HEAD
 #header-checkbox {
     width:5%
 }
@@ -80,4 +81,17 @@ body {
 
 #header-months {
     width:15%
+=======
+.categories{
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryBtn{
+    margin: 5px 10px;
+}
+
+.box-titles{
+    margin: 0px;
+>>>>>>> dev
 }

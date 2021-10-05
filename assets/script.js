@@ -1,4 +1,5 @@
-var mainContent = document.querySelector(".content")
+var mainContent = document.querySelector(".content");
+var villagerIcon;
 var allFish = [];
 var allSeaCreatures = [];
 var allBugs = [];
@@ -136,36 +137,20 @@ function getFish() {
 // function getArt() {
 //     var artUrl = "http://acnhapi.com/v1/art/"
 
-//     fetch(artUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             var allData = data;
-
-//         })
-// }
-
-// function getVillagers() {
-//     for (i = 0; i < villagers.length; i++) {
-//         var villagerUrl = 'https://www.instafluff.tv/ACDB/Villagers/' + villagers[i] + '.json'
-//         fetch(villagerUrl)
-//             .then(function (response) {
-//                 return response.json();
-//             })
-//             .then(function (data) {
-//                 console.log(data.name['US-en']);
-//                 console.log(data.personality);
-//                 console.log(data.birthday);
-//                 console.log(data.hobby);
-//             })
-//     }
-// }
-
-getFish();
-// getSeaCreatures();
-// getBugs();
-// getFossils();
-// getSongs();
-// getArt();
-// getVillagers();
+function getVillagers(){
+    for (i=0; i < villagers.length; i++){
+        var villagerUrl = 'https://www.instafluff.tv/ACDB/Villagers/' + villagers[i] + '.json'
+        fetch(villagerUrl)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            console.log(data.name['US-en']);
+            console.log(data.personality);
+            console.log(data.birthday);
+            console.log(data.hobby);
+            console.log(data.icon);
+            // villagerIcon.setAttribute("src", data.icon);
+        })
+    } 
+}
