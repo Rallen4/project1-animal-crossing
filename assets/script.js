@@ -89,6 +89,8 @@ function getFish() {
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
@@ -120,7 +122,40 @@ function getFish() {
         )
 }
 
+<<<<<<< HEAD
+var rarityCommonEl = document.getElementById("rarity-common");
+var rarityRareEl = document.getElementById("rarity-rare")
 
+function filterAll() {
+    // console.log($(".rarity-item"));
+
+    // filter out completed items
+    if ($("#name")[0].checked == true) {
+        $(".line-item").each(function () {
+            // console.log($(this)[0].checked)
+            if ($(this)[0].checked == true) {
+                console.log("hello");
+                $(this).parent().parent().parent().css("display", "none")
+            }
+        })
+
+    }
+
+    // Show only Common
+    if (rarityCommonEl.checked == true) {
+        $(".rarity-item").each(function () {
+            console.log($(this).innerText);
+            if ($(this)[0].innerText !== "Common") {
+                $(this).parent().css("display", "none")            }
+        })
+    }
+
+}
+=======
+
+>>>>>>> dev
+
+console.log();
 
 function getSeaCreatures() {
     DeleteRows()
@@ -500,6 +535,9 @@ function getVillagers(){
             colLocation.innerText = data.hobby;
         })
     } 
+<<<<<<< HEAD
+}
+=======
 }
 
 function filterCompleted() {
@@ -546,3 +584,4 @@ function filterPrice() {
       x.style.display = "none";
     }
   }
+>>>>>>> dev
