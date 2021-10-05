@@ -23,6 +23,11 @@ function toggleCompletion(type, id) {
 }
 
 function getFish() {
+    // function that deletes all the rows of the previous function
+    var rowCount = mainContent.rows.length;
+    for (var i = rowCount - 1; i > 0; i--) {
+        mainContent.deleteRow(i);
+    }
     // define URL for API
     var requestUrl = 'https://acnhapi.com/v1/fish/';
     // fetching data of API
@@ -163,13 +168,6 @@ function getVillagers() {
     }
 }
 
-// getFish();
-// getSeaCreatures();
-// getBugs();
-// getFossils();
-// getSongs();
-// getArt();
-// getVillagers();
 function getVillagers(){
     for (i=0; i < villagers.length; i++){
         var villagerUrl = 'https://www.instafluff.tv/ACDB/Villagers/' + villagers[i] + '.json'
