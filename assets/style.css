@@ -57,3 +57,27 @@ body {
     background-repeat: no-repeat;
     text-shadow: 0.5px 0.5px black;
 }
+
+#header-checkbox {
+    width:5%
+}
+
+#header-img {
+    width: 5%
+}
+
+#header-name {
+    width:20%
+}
+
+#header-location {
+    width:20%
+}
+
+#header-rarity {
+    width: 15%
+}
+
+#header-months {
+    width:15%
+}
