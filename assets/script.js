@@ -122,6 +122,10 @@ function getFish() {
         )
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> dev
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
 
