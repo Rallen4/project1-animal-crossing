@@ -77,9 +77,9 @@ button:hover{
 @media all and (max-width:30em){
     button{
         display: block;
-        margin: 0.4em auto;
+        margin: 0.4rem, auto;
 }
-}
+
 
 .checkboxes {
     color: black;
@@ -137,4 +137,4 @@ button:hover{
     text-align: center;
     text-shadow: 0.5px 0.5px red;
 }
-
+}
