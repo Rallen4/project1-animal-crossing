@@ -29,7 +29,7 @@ body {
 
 
 .nav-wrapper {
-    position: fixed;
+    position: absolute;
 }
 /* .row {
     max-width: 100%;
