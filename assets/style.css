@@ -95,3 +95,14 @@ body {
 .box-titles{
     margin: 0px;
 }
+
+#villagerTable{
+    margin: 10px;
+    width: 1000px;
+}
+
+#villagerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

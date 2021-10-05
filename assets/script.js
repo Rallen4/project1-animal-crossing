@@ -1,4 +1,5 @@
 var mainContent = document.querySelector(".content");
+var villagerTable = document.querySelector("#villagerTable")
 var villagerIcon;
 var allFish = [];
 var allSeaCreatures = [];
@@ -176,8 +177,29 @@ function getVillagers(){
             console.log(data.personality);
             console.log(data.birthday);
             console.log(data.hobby);
-            console.log(data.icon);
             // villagerIcon.setAttribute("src", data.icon);
+            var newRow = villagerTable.insertRow(1);
+            var colCheckbox = newRow.insertCell(0)
+            // creates a checkbox in that cell
+            colCheckbox.innerHTML = `<label>
+            <input id="fish" onclick="toggleCompletion()" type="checkbox" data-completed: false/>
+            <span></span>
+            </label>`
+            var colImg = newRow.insertCell(1)
+            // populating cell with img
+            colImg.innerHTML = `<img src="` + data.icon + `" style="width:48px" alt="item img">`;
+            var colName = newRow.insertCell(2);
+            // add name to name cell
+            colName.innerText = data.name['US-en'];
+            var colLocation = newRow.insertCell(3);
+            // add personality
+            colLocation.innerText = data.personality;
+            var colLocation = newRow.insertCell(4);
+            // add birthday
+            colLocation.innerText = data.birthday;
+            var colLocation = newRow.insertCell(5);
+            // add hobby
+            colLocation.innerText = data.hobby;
         })
     } 
 }
