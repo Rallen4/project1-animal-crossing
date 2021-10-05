@@ -608,8 +608,18 @@ function renderVillagers(data) {
         allNames.sort();
         for (let i = 0; i < allNames.length; i++) {
             console.log(allNames[i])
-            if(allNames[i]===colName.innerText[i]){
-                console.log("okay :)")
+            if(allNames[i]===colName.innerText){
+                var table,
+                rows,
+                switching,
+                i,
+                x,
+                y,
+                shouldSwitch,
+                dir,
+                switchcount = 0;
+                table = document.getElementById("villagerTable");
+                
             }
         }
     })
