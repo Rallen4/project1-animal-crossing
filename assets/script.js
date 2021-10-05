@@ -163,13 +163,13 @@ function getVillagers() {
     }
 }
 
-getFish();
-getSeaCreatures();
-getBugs();
-getFossils();
-getSongs();
-getArt();
-getVillagers();
+// getFish();
+// getSeaCreatures();
+// getBugs();
+// getFossils();
+// getSongs();
+// getArt();
+// getVillagers();
 function getVillagers(){
     for (i=0; i < villagers.length; i++){
         var villagerUrl = 'https://www.instafluff.tv/ACDB/Villagers/' + villagers[i] + '.json'
