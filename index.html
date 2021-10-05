@@ -75,42 +75,89 @@
                       <!-- Filter Title -->
                         <h3 class="box-titles">Filter</h3>
                       <!-- Filter Options -->
-                        <ul class="list-group">
+                      <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Name</a>
+                        <ul class="list-group" id="dropdown1">
                           <p class="list-group-item">
                             <label>
                               <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="name"/>
-                              <span>Name</span>
+                              <span>Completed</span>
                             </label>
                           </p>
+                          </ul>
+
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown2'>Location</a>
+                        <ul class="list-group" id='dropdown2'>
                           <p class="list-group-item">
                             <label>
                               <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="location" />
-                              <span>Location</span>
-                            </label>
-                          </p>
-                          <p class="list-group-item">
-                            <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="price" />
-                              <span>Price</span>
-                            </label>
-                          </p>
-                          <p class="list-group-item">
-                            <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="rarity" />
-                              <span>Rarity</span>
-                            </label>
-                          </p>
-                          <p class="list-group-item">
-                            <label>
-                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
-                              <span>Month</span>
+                              <span>Ocean</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="location" />
+                              <span>River</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="location" />
+                              <span>Pond</span>
                             </label>
                           </p>
                         </ul>
+
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown3'>Price</a>
+                        <ul class="list-group" id="drowpdown3">
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="price-filter" />
+                              <span>Price</span>
+                            </label>
+                          </p>
+                        </ul>
+
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown4'>Rarity</a>
+                        <ul class="list-group" id="drowpdown4">
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="rarity" />
+                              <span>Common</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="rarity" />
+                              <span>Rare</span>
+                            </label>
+                          </p>
+                        </ul>
+                        
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown5'>Month</a>
+                        <ul class="list-group" id="drowpdown5">
+                          <p class="list-group-item">
+                            <label>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>October</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>November</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>December</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>January</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>February</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>March</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>Apri</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>May</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>June</span>
+                              <input type="checkbox" class="filled-in filter-btn sidebar-btn" id="month" />
+                              <span>July</span>
+                            </label>
+                          </p>
+                        </ul>
+
+  <!-- Dropdown Structure -->
+
+          
+                       
                     </div>
                     <!-- Filter Submit -->
                     <div class="card-action">
-                        <button class="filter-btn">Filter</button>
+                        <button onclick="filterAll()" class="filter-btn">Filter</button>
                     </div>
                 </div>
       </div>

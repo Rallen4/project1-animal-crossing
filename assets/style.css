@@ -45,10 +45,11 @@ body {
 }
 
 .card-1 {
-    background-image: url(./img/owl.jpg);
+    /* background-image: url(./img/owl.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0.5px 0.5px black;
+    /* min-height: 400px; */
 }
 
 .card-2 {
@@ -56,8 +57,12 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0.5px 0.5px black;
+    min-height: 400px;
 }
 
+.list-group {
+    align-items: flex-end;
+}
 #header-checkbox {
     width:5%
 }

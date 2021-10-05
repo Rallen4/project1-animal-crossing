@@ -293,11 +293,11 @@ function getFossils() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add Location to Location Cell
-                colLocation.innerText = e.availability.location;
+                colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add rarity to rarity cell
-                colRarity.innerText = e.availability.rarity;
+                colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
                 // add price to price cell
@@ -305,7 +305,7 @@ function getFossils() {
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
-                colMonths.innerText = e.availability["month-northern"];
+                colMonths.innerText = "N/A";
                 
                 var fossilName= e.name['name-USen'];
                 console.log(fossilName);
@@ -361,19 +361,19 @@ function getSongs() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add Location to Location Cell
-                colLocation.innerText = e.availability.location;
+                colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add rarity to rarity cell
-                colRarity.innerText = e.availability.rarity;
+                colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
-                // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                // add price to price cell: Fix this!!!!!
+                colPrice.innerText = "N/A";
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
-                colMonths.innerText = e.availability["month-northern"];
+                colMonths.innerText = "N/A";
                 
                 var songName= e.name['name-USen'];
                 console.log(songName);
@@ -428,19 +428,19 @@ function getArt() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add Location to Location Cell
-                colLocation.innerText = e.availability.location;
+                colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add rarity to rarity cell
-                colRarity.innerText = e.availability.rarity;
+                colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
                 // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                colPrice.innerText = "N/A";
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
-                colMonths.innerText = e.availability["month-northern"];
+                colMonths.innerText = "N/A";
                 
                 var artName= e.name['name-USen'];
                 console.log(artName);
