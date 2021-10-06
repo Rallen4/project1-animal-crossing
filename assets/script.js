@@ -6,10 +6,10 @@ var allFossils = [];
 var allNames = [];
 
 function DeleteRows() {
-  var rowCount = mainContent.rows.length;
-  for (var i = rowCount - 1; i > 0; i--) {
-    mainContent.deleteRow(i);
-  }
+    var rowCount = mainContent.rows.length;
+    for (var i = rowCount - 1; i > 0; i--) {
+        mainContent.deleteRow(i);
+    }
 }
 
 function toggleCompletionFish(event) {
@@ -115,46 +115,29 @@ function getFish() {
                 }
             });
 
-        var fishName = e.name["name-USen"];
-        console.log(fishName);
-        var checkbox = document.querySelector(
-          `input[data-fish-id="` + fishName + `"]`
-        );
-        console.log(checkbox, checkbox.checked);
-        var fishValue = localStorage.getItem(fishName);
-        console.log(fishValue, typeof fishValue);
+            var fishName = e.name["name-USen"];
+            console.log(fishName);
+            var checkbox = document.querySelector(
+                `input[data-fish-id="` + fishName + `"]`
+            );
+            console.log(checkbox, checkbox.checked);
+            var fishValue = localStorage.getItem(fishName);
+            console.log(fishValue, typeof fishValue);
 
-        
-        if (localStorage.getItem(fishName) == undefined) {
-          localStorage.setItem(fishName, checkbox.checked);
-        } else {
-          checkbox.checked = fishValue == "true";
-        }
 
-        console.log(
-          colCheckbox
-            .getElementsByTagName("input")[0]
-            .getAttribute("data-fish-id")
-        );
-    });
+            if (localStorage.getItem(fishName) == undefined) {
+                localStorage.setItem(fishName, checkbox.checked);
+            } else {
+                checkbox.checked = fishValue == "true";
+            }
+
+            console.log(
+                colCheckbox
+                    .getElementsByTagName("input")[0]
+                    .getAttribute("data-fish-id")
+            );
+        });
 };
-
-
-function getSeaCreatures() {
-  var seaUrl = "http://acnhapi.com/v1/sea/";
-
-  fetch(seaUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      var allData = data;
-      // creates array of keys of the data (all of the sea creature names that we need for URLs)
-      var seaNames = Object.keys(allData);
-      // pushes all names into empty array
-      allSeaCreatures.push(seaNames);
-    });
-}
 
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
@@ -636,49 +619,4 @@ function getArt() {
 
         }
         )
-}
-
-function filterCompleted() {
-    var x = document.getElementById("completed-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function filterLocation() {
-    var x = document.getElementById("location-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function filterPrice() {
-    var x = document.getElementById("price-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function filterRarity() {
-    var x = document.getElementById("rarity-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function filterMonth() {
-    var x = document.getElementById("month-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
 }
