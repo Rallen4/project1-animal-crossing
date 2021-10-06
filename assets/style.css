@@ -16,7 +16,15 @@ body {
     }
 } 
 
+.box-titles{
+    text-align: center;
+    padding: 0%;
+    font-size: 2rem;
+}
 
+.filter-btn {
+    justify-content: center;
+}
 .content {
     text-align: center;
     text-shadow: 0.5px 0.5px rgb(167, 167, 21);
@@ -32,7 +40,7 @@ body {
 }
 
 .card-1 {
-    background-image: url(./img/flowers.png);
+    /* background-image: url(./img/flowers.png); */
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0.7px 0.7px rgb(25, 165, 153);
@@ -41,21 +49,21 @@ body {
     background-color: rgb(198, 248, 221);
     /* border-bottom-style:ridge; */
     
-    /* min-height: 35vh; */
+    min-height: 25vh;
 }
 
 
 .card-2 {
-    background-image: url(./img/flowers.png);
+    /* background-image: url(./img/flowers.png); */
     background-size: cover;
     background-repeat: no-repeat;
     /* text-shadow: 0.7px 0.7px rgb(25, 165, 153); */
     text-emphasis-color: black;
-    /* min-height: 35vh; */
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     border-style: ridge;
     background-color: rgb(198, 248, 221);
+    /* max-height: 35vh; */
     /* border-top-style: ridge; */
 }
 
