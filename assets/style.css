@@ -86,6 +86,7 @@ button:hover{
     button{
         display: block;
         margin: 0.4rem, auto;
+    }
 }
 
 
@@ -138,7 +139,7 @@ button:hover{
 
 #villagerTable{
     margin: 10px;
-    width: 1000px;
+    width: 85%;
 }
 
 #villagerDiv{
@@ -147,8 +148,11 @@ button:hover{
     align-items: center;
 }
 
+#villager-name, #villager-birthday, #villager-hobbies, #villager-personality:hover{
+    cursor: pointer;
+}
+
 #village-header {
     text-align: center;
     text-shadow: 0.5px 0.5px red;
-}
 }
