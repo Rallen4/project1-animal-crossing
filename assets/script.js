@@ -6,6 +6,7 @@ var allSeaCreatures = [];
 var allBugs = [];
 var allFossils = [];
 var allNames = [];
+var allVillagers = [];
 var villagers = [
   "Admiral",
   "Agent_S",
@@ -599,8 +600,6 @@ function filterAll() {
 
 }
 
-console.log();
-
 function getSeaCreatures() {
     DeleteRows()
     // define URL for API
@@ -669,7 +668,6 @@ function getSeaCreatures() {
         }
         )
 }
-
 
 // issue: fish populating with bugs
 function getBugs() {
@@ -937,7 +935,14 @@ function getArt() {
         )
 }
 
-function getVillagers() {
+function DeleteVillagerRows() {
+    var rowCount = villagerTable.rows.length;
+    for (var i = rowCount - 1; i > 0; i--) {
+      villagerTable.deleteRow(i);
+    }
+}
+
+function getVillagers(){
     for (i = 0; i < villagers.length; i++) {
       var villagerUrl =
         "https://www.instafluff.tv/ACDB/Villagers/" + villagers[i] + ".json";
@@ -946,13 +951,13 @@ function getVillagers() {
           return response.json();
         })
         .then(function (data) {
-          renderVillagers(data);
+            renderVillager(data);
+            allVillagers.push(data);
         });
     }
 }
   
-  
-function renderVillagers(data) {
+function renderVillager(data) {
     var newRow = villagerTable.insertRow(1);
     var colCheckbox = newRow.insertCell(0);
     // creates a checkbox in that cell
@@ -962,8 +967,7 @@ function renderVillagers(data) {
       </label>`;
     var colImg = newRow.insertCell(1);
     // populating cell with img
-    colImg.innerHTML =
-      `<img src="` + data.icon + `" style="width:48px" alt="item img">`;
+    colImg.innerHTML = `<img src="` + data.icon + `" style="width:48px" alt="item img">`;
     var colName = newRow.insertCell(2);
     // add name to name cell
     colName.innerText = data.name["US-en"];
@@ -976,104 +980,62 @@ function renderVillagers(data) {
     var colHobby = newRow.insertCell(5);
     // add hobby
     colHobby.innerText = data.hobby;
-      document.querySelector("#villager-name").addEventListener("click", function (event){
-          event.preventDefault();
-          var fullName = data.name["US-en"];
-          allNames.push(fullName);
-          allNames.sort();
-          for (let i = 0; i < allNames.length; i++) {
-              console.log(allNames[i])
-              if(allNames[i]===colName.innerText){
-                  var table,
-                  rows,
-                  switching,
-                  i,
-                  x,
-                  y,
-                  shouldSwitch,
-                  dir,
-                  switchcount = 0;
-                  table = document.getElementById("villagerTable");
-                  
-              }
-          }
-      })
 }
-  
-  
-  
-function sortTable(n) {
-    var table,
-      rows,
-      switching,
-      i,
-      x,
-      y,
-      shouldSwitch,
-      dir,
-      switchcount = 0;
-    table = document.getElementById("villagerTable");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-      no switching has been done: */
-    while (switching) {
-      // Start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /* Loop through all table rows (except the
-        first, which contains table headers): */
-      for (i = 1; i < rows.length - 1; i++) {
-        // Start by saying there should be no switching:
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-          one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("td")[n + 2];
-        y = rows[i + 1].getElementsByTagName("td")[n + 2];
-        /* Check if the two rows should switch place,
-          based on the direction, asc or desc: */
-        if (dir == "asc") {
-          console.log(x.innerHTML);
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-      }
-      if (shouldSwitch) {
-        /* If a switch has been marked, make the switch
-          and mark that a switch has been done: */
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        // Each time a switch is done, increase this count by 1:
-        switchcount++;
-      } else {
-        /* If no switching has been done AND the direction is "asc",
-          set the direction to "desc" and run the while loop again. */
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
-        }
-      }
-    }
-    renderRows();
-}
-        
 
-function renderRows(rows) {
-  var table = document.getElementById("villagerTable");
-  for (let i = 1; i < table.children("tr").length; i++) {
-    table.children("tr")[i] = rows[i - 1];
-  }
+function renderManyVillagers(allVillagers) {
+    for (let i = 0; i < allVillagers.length; i++) {
+        renderVillager(allVillagers[i]);
+    }
 }
+
+document.querySelector("#villager-name").addEventListener("click", function (event){
+    event.preventDefault();
+    DeleteVillagerRows();
+    if (allVillagers[0].name["US-en"] < allVillagers[1].name["US-en"]){
+        allVillagers.sort((a,b)=> (a.name["US-en"] < b.name["US-en"] ? 1 : -1));
+        renderManyVillagers(allVillagers);
+    }else{
+        allVillagers.sort((a,b)=> (a.name["US-en"] > b.name["US-en"] ? 1 : -1));
+        renderManyVillagers(allVillagers);
+    }
+})
+
+var personalityClicked = true;
+document.querySelector("#villager-personality").addEventListener("click", function (event){
+    event.preventDefault();
+    DeleteVillagerRows();
+    // if villagerClicked sort A-Z
+    if(personalityClicked){
+        allVillagers.sort((a,b)=> (a.personality < b.personality ? 1 : -1));
+        personalityClicked = false;
+    }else{
+        allVillagers.sort((a,b)=> (a.personality > b.personality ? 1 : -1));
+        personalityClicked = true;
+    }
+    renderManyVillagers(allVillagers);
+})
+
+document.querySelector("#villager-birthday").addEventListener("click", function (event){
+    event.preventDefault();
+    DeleteVillagerRows();
+    // moment format from ("MMMM Do")
+    allVillagers.sort((a,b)=> (a.birthday < b.birthday ? 1 : -1));
+    renderManyVillagers(allVillagers);
+})
+
+var hobbyClicked = true;
+document.querySelector("#villager-hobbies").addEventListener("click", function (event){
+    event.preventDefault();
+    DeleteVillagerRows();
+    if (hobbyClicked){
+        allVillagers.sort((a,b)=> (a.hobby < b.hobby ? 1 : -1));
+        hobbyClicked = false;
+    } else{
+        allVillagers.sort((a,b)=> (a.hobby > b.hobby ? 1 : -1));
+        hobbyClicked = true;
+    }
+    renderManyVillagers(allVillagers);
+})
 
 function filterCompleted() {
     var x = document.getElementById("completed-btn");

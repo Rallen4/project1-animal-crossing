@@ -78,8 +78,8 @@ button:hover{
     button{
         display: block;
         margin: 0.4rem, auto;
+    }
 }
-
 
 .checkboxes {
     color: black;
@@ -140,5 +140,4 @@ button:hover{
 #village-header {
     text-align: center;
     text-shadow: 0.5px 0.5px red;
-}
 }
