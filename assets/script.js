@@ -14,41 +14,42 @@ function DeleteRows() {
     }
 }
 
-function toggleCompletion(event) {
+function toggleCompletionFish(event) {
     var checked = event.target.checked;
     var fishName = event.target.getAttribute("data-fish-id");
     localStorage.setItem(fishName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionSea(event) {
     var checked = event.target.checked;
     var seaName = event.target.getAttribute("data-sea-id");
     localStorage.setItem(seaName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionBug(event) {
     var checked = event.target.checked;
     var bugName = event.target.getAttribute("data-bug-id");
     localStorage.setItem(bugName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionFossil(event) {
     var checked = event.target.checked;
     var fossilName = event.target.getAttribute("data-fossil-id");
     localStorage.setItem(fossilName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionSong(event) {
     var checked = event.target.checked;
     var songName = event.target.getAttribute("data-song-id");
     localStorage.setItem(songName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionArt(event) {
     var checked = event.target.checked;
     var artName = event.target.getAttribute("data-art-id");
     localStorage.setItem(artName, checked);
 };
+
 
 
 function getFish() {
@@ -71,7 +72,7 @@ function getFish() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="fish line-item" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fish-id="` + e.name['name-USen'] + `"/>
+                <input class="fish line-item" onclick="toggleCompletionFish(event)" type="checkbox" data-completed=false data-fish-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -261,7 +262,7 @@ function getSeaCreatures() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="sea-creatures" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-sea-id="` + e.name['name-USen'] + `"/>
+                <input class="sea-creatures" onclick="toggleCompletionSea(event)" type="checkbox" data-completed=false data-sea-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -335,7 +336,7 @@ function getBugs() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="bugs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-bug-id="` + e.name['name-USen'] + `"/>
+                <input class="bugs" onclick="toggleCompletionBug(event)" type="checkbox" data-completed=false data-bug-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -409,7 +410,7 @@ function getFossils() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="fossils" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fossil-id="` + e.name['name-USen'] + `"/>
+                <input class="fossils" onclick="toggleCompletionFossil(event)" type="checkbox" data-completed=false data-fossil-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -483,7 +484,7 @@ function getSongs() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="songs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-song-id="` + e.name['name-USen'] + `"/>
+                <input class="songs" onclick="toggleCompletionSong(event)" type="checkbox" data-completed=false data-song-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -556,7 +557,7 @@ function getArt() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="art" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-art-id="` + e.name['name-USen'] + `"/>
+                <input class="art" onclick="toggleCompletionArt(event)" type="checkbox" data-completed=false data-art-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
