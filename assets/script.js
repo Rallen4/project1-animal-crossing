@@ -447,7 +447,7 @@ function toggleCompletionArt(event) {
 
 
 function getFish() {
-    DeleteRows()
+    DeleteRows();
     // define URL for API
     var requestUrl = 'https://acnhapi.com/v1/fish/';
     // fetching data of API
@@ -458,6 +458,8 @@ function getFish() {
         // reformatting data to fit needs
         .then(function (data) {
             data = Object.values(data);
+            allFish.push(data)
+            console.log(allFish)
 
             $(data).each(function (i, e) {
                 // create new row under the header
@@ -520,7 +522,7 @@ function getFish() {
         var fishValue = localStorage.getItem(fishName);
         console.log(fishValue, typeof fishValue);
 
-
+        
         if (localStorage.getItem(fishName) == undefined) {
           localStorage.setItem(fishName, checkbox.checked);
         } else {
@@ -1097,21 +1099,22 @@ function renderManyVillagers(allVillagers) {
 }
 
 // set clicked value to true
+var villagerClicked = true;
 // click to sort by name
 document.querySelector("#villager-name").addEventListener("click", function (event){
     event.preventDefault();
     // deletes the previously rendered rows 
     DeleteVillagerRows();
     // if the first row is lower than the second row then sort by A-Z
-    if (allVillagers[0].name["US-en"] < allVillagers[1].name["US-en"]){
+    if (villagerClicked){
         allVillagers.sort((a,b)=> (a.name["US-en"] < b.name["US-en"] ? 1 : -1));
-    
+        villagerClicked = false;
     }
     // if not, then sort Z-A
     else{
         allVillagers.sort((a,b)=> (a.name["US-en"] > b.name["US-en"] ? 1 : -1));
-
-    }
+        villagerClicked = true;
+    }  
     // render villagers in the sorted by name array onto page
     renderManyVillagers(allVillagers);
 })
@@ -1136,17 +1139,20 @@ document.querySelector("#villager-personality").addEventListener("click", functi
     renderManyVillagers(allVillagers);
 })
 
+// set clicked value to true
+var birthdayClicked = true;
 // click to sort alphabetically by birthday
 document.querySelector("#villager-birthday").addEventListener("click", function (event){
     event.preventDefault();
     DeleteVillagerRows();
-    // if first row is lower than second, then sort A-Z
-    if(allVillagers[0].birthday < allVillagers[1].birthday){
+    if(birthdayClicked){
         allVillagers.sort((a,b)=> (a.birthday < b.birthday ? 1 : -1));
+        birthdayClicked = false
     }
     // if not, then sort Z-A
     else{
         allVillagers.sort((a,b)=> (a.birthday > b.birthday ? 1 : -1));
+        birthdayClicked = true;
     }
     // renders villagers sorted by alphabetical birthday
     renderManyVillagers(allVillagers);
