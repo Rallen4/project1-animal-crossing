@@ -3,7 +3,8 @@ var allFish = [];
 var allSeaCreatures = [];
 var allBugs = [];
 var allFossils = [];
-var allNames = [];
+var allArt = [];
+var allSongs = [];
 
 function DeleteRows() {
     var rowCount = mainContent.rows.length;
@@ -60,19 +61,19 @@ function getFish() {
         // reformatting data to fit needs
         .then(function (data) {
             data = Object.values(data);
-            allFish.push(data)
-            console.log(allFish)
+            allFish.push(data);
+            // sortFish();
 
-            $(data).each(function (i, e) {
+            $(data).each(function renderFish(i, e) {
                 // create new row under the header
                 var newRow = mainContent.insertRow(1);
                 // inserts a cell in the first column "checkbox"
-                var colCheckbox = newRow.insertCell(0)
+                var colCheckbox = newRow.insertCell(0);
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
                 <input class="fish line-item" onclick="toggleCompletionFish(event)" type="checkbox" data-completed=false data-fish-id="` + e.name['name-USen'] + `"/>
                 <span></span>
-              </label>`
+              </label>`;
                 // insert a cell in the second column "image"
                 var colImg = newRow.insertCell(1);
                 // populating cell with img
@@ -84,19 +85,19 @@ function getFish() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add class to Location
-                $(colLocation).addClass("location-item")
+                $(colLocation).addClass("location-item");
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add class to rarity
-                $(colRarity).addClass("rarity-item")
+                $(colRarity).addClass("rarity-item");
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
                 // add class to price cell
-                $(colPrice).addClass("price-item")
+                $(colPrice).addClass("price-item");
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -106,38 +107,120 @@ function getFish() {
 
                 var fishName = e.name['name-USen'];
                 var checkbox = document.querySelector(`input[data-fish-id="` + fishName + `"]`);
-                var fishValue = localStorage.getItem(fishName)
+                var fishValue = localStorage.getItem(fishName);
 
                 if (localStorage.getItem(fishName) == undefined) {
                     localStorage.setItem(fishName, checkbox.checked);
                 } else {
                     checkbox.checked = fishValue == "true"
                 }
+
+                for (let i = 0; i < allFish[0].length; i++) {
+                    var nameClicked = true;
+                    document.querySelector("#header-name").addEventListener("click", function(event) {
+                    // click to sort by name
+                    event.preventDefault();
+                    // deletes the previously rendered rows 
+                    DeleteRows();
+                    // if the first row is lower than the second row then sort by A-Z
+                    if (nameClicked){
+                        allFish[0][i].name["name-USen"].toLowerCase();
+                        console.log(allFish[0][i].name["name-USen"])
+                        allFish[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
+                        console.log(allFish)
+                        nameClicked = false;
+                    }
+                    // if not, then sort Z-A
+                    else{
+                        allFish[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
+                        nameClicked = true;
+                    }  
+                    // render villagers in the sorted by name array onto page
+                    renderFish(allFish[0]);
+            })
+
+
+                }
             });
-
-            var fishName = e.name["name-USen"];
-            console.log(fishName);
-            var checkbox = document.querySelector(
-                `input[data-fish-id="` + fishName + `"]`
-            );
-            console.log(checkbox, checkbox.checked);
-            var fishValue = localStorage.getItem(fishName);
-            console.log(fishValue, typeof fishValue);
-
-
-            if (localStorage.getItem(fishName) == undefined) {
-                localStorage.setItem(fishName, checkbox.checked);
-            } else {
-                checkbox.checked = fishValue == "true";
-            }
-
-            console.log(
-                colCheckbox
-                    .getElementsByTagName("input")[0]
-                    .getAttribute("data-fish-id")
-            );
         });
 };
+
+// function sortFish() {
+//     for (let i = 0; i < allFish[0].length; i++) {
+//         DeleteRows();
+//         var newRow = mainContent.insertRow(1);
+//         // inserts a cell in the first column "checkbox"
+//         var colCheckbox = newRow.insertCell(0);
+//         // creates a checkbox in that cell
+//         colCheckbox.innerHTML = `<label>
+//         <input class="fish line-item" onclick="toggleCompletionFish(event)" type="checkbox" data-completed=false data-fish-id="` + allFish[0][i].name['name-USen'] + `"/>
+//         <span></span>
+//         </label>`;
+//         // insert a cell in the second column "image"
+//         var colImg = newRow.insertCell(1);
+//         // populating cell with img
+//         colImg.innerHTML = `<img src="` + allFish[0][i].image_uri + `" style="width:48px" alt="item img">`;
+//         // create Name cell
+//         var colName = newRow.insertCell(2);
+//         // add name to name cell
+//         colName.innerText = allFish[0][i].name['name-USen'];
+//         // create Location cell
+//         var colLocation = newRow.insertCell(3);
+//         // add class to Location
+//         $(colLocation).addClass("location-item");
+//         // add Location to Location Cell
+//         colLocation.innerText = allFish[0][i].availability.location;
+//         // Create Rarity cell
+//         var colRarity = newRow.insertCell(4);
+//         // add class to rarity
+//         $(colRarity).addClass("rarity-item");
+//         // add rarity to rarity cell
+//         colRarity.innerText = allFish[0][i].availability.rarity;
+//         // create price cell
+//         var colPrice = newRow.insertCell(5);
+//         // add class to price cell
+//         $(colPrice).addClass("price-item");
+//         // add price to price cell
+//         colPrice.innerText = allFish[0][i].price.toLocaleString();
+//         // Create Months Cell
+//         var colMonths = newRow.insertCell(6);
+//         // add months to months cell
+//         colMonths.innerText = allFish[0][i].availability["month-northern"];
+
+//         var nameClicked = true;
+//             document.querySelector("#header-name").addEventListener("click", function(event) {
+//                 // click to sort by name
+//                 event.preventDefault();
+//                 // deletes the previously rendered rows 
+//                 DeleteRows();
+//                 // if the first row is lower than the second row then sort by A-Z
+//                 if (nameClicked){
+//                     allFish[0][i].name["name-USen"].toLowerCase();
+//                     console.log(allFish[0][i].name["name-USen"])
+//                     allFish[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
+//                     console.log(allFish)
+//                     nameClicked = false;
+//                 }
+//                 // if not, then sort Z-A
+//                 else{
+//                     allFish[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
+//                     nameClicked = true;
+//                 }  
+//                 // render villagers in the sorted by name array onto page
+//                 renderFish(allFish[0]);
+//             })
+
+
+
+
+//     }
+
+    
+
+// }
+
+
+
 
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
@@ -261,7 +344,7 @@ function filterAll() {
 function getSeaCreatures() {
     DeleteRows()
     // define URL for API
-    var requestUrl = "http://acnhapi.com/v1/sea/";
+    var requestUrl = "https://acnhapi.com/v1/sea/";
     // fetching data of API
     fetch(requestUrl)
         .then(function (response) {
@@ -335,7 +418,7 @@ function getSeaCreatures() {
 // issue: fish populating with bugs
 function getBugs() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/bugs/"
+    var requestUrl = "https://acnhapi.com/v1/bugs/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -407,7 +490,7 @@ function getBugs() {
 
 function getFossils() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/fossils/"
+    var requestUrl = "https://acnhapi.com/v1/fossils/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -479,7 +562,7 @@ function getFossils() {
 
 function getSongs() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/songs/"
+    var requestUrl = "https://acnhapi.com/v1/songs/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -551,7 +634,7 @@ function getSongs() {
 
 function getArt() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/art/"
+    var requestUrl = "https://acnhapi.com/v1/art/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
