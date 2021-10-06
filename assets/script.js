@@ -1104,11 +1104,13 @@ document.querySelector("#villager-name").addEventListener("click", function (eve
     // if the first row is lower than the second row then sort by A-Z
     if (allVillagers[0].name["US-en"] < allVillagers[1].name["US-en"]){
         allVillagers.sort((a,b)=> (a.name["US-en"] < b.name["US-en"] ? 1 : -1));
+        $(this).text($(this).text().slice(0,-2) + " ↑")
     
     }
     // if not, then sort Z-A
     else{
         allVillagers.sort((a,b)=> (a.name["US-en"] > b.name["US-en"] ? 1 : -1));
+        $(this).text($(this).text().slice(0,-2) + " ↓")
 
     }
     // render villagers in the sorted by name array onto page
@@ -1125,11 +1127,15 @@ document.querySelector("#villager-personality").addEventListener("click", functi
     if(personalityClicked){
         allVillagers.sort((a,b)=> (a.personality < b.personality ? 1 : -1));
         personalityClicked = false;
+        // add "up arrow" when A-Z sorting is selected
+        $(this).text($(this).text().slice(0,-2) + " ↑")
     }
     // if not true, then sort Z-A
     else{
         allVillagers.sort((a,b)=> (a.personality > b.personality ? 1 : -1));
         personalityClicked = true;
+        // add "down arrow" when Z-A sorting is selected
+        $(this).text($(this).text().slice(0,-2) + " ↓")
     }
     // render villagers sorted alphabetically by personality
     renderManyVillagers(allVillagers);
@@ -1142,10 +1148,14 @@ document.querySelector("#villager-birthday").addEventListener("click", function 
     // if first row is lower than second, then sort A-Z
     if(allVillagers[0].birthday < allVillagers[1].birthday){
         allVillagers.sort((a,b)=> (a.birthday < b.birthday ? 1 : -1));
+        // add "up arrow" when A-Z sorting is selected
+        $(this).text($(this).text().slice(0,-2) + " ↑")
     }
     // if not, then sort Z-A
     else{
         allVillagers.sort((a,b)=> (a.birthday > b.birthday ? 1 : -1));
+        // add "down arrow" when Z-A sorting is selected
+        $(this).text($(this).text().slice(0,-2) + " ↓")
     }
     // renders villagers sorted by alphabetical birthday
     renderManyVillagers(allVillagers);
@@ -1161,11 +1171,15 @@ document.querySelector("#villager-hobbies").addEventListener("click", function (
     if (hobbyClicked){
         allVillagers.sort((a,b)=> (a.hobby < b.hobby ? 1 : -1));
         hobbyClicked = false;
+        // add "up arrow" when A-Z sorting is selected
+        $(this).text($(this).text().slice(0,-2) + " ↑")
     } 
     // if not clicked then sort Z-A
     else{
         allVillagers.sort((a,b)=> (a.hobby > b.hobby ? 1 : -1));
         hobbyClicked = true;
+        // add "down arrow" when Z-A sorting is selected
+        $(this).text($(this).text().slice(0,-2) + " ↓")
     }
     // renders villagers sorted alphabetically hobby
     renderManyVillagers(allVillagers);
