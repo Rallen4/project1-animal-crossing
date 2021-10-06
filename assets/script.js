@@ -238,7 +238,7 @@ function filterAll() {
 function getSeaCreatures() {
     DeleteRows()
     // define URL for API
-    var requestUrl = "http://acnhapi.com/v1/sea/";
+    var requestUrl = "https://acnhapi.com/v1/sea/";
     // fetching data of API
     fetch(requestUrl)
         .then(function (response) {
@@ -312,7 +312,7 @@ function getSeaCreatures() {
 // issue: fish populating with bugs
 function getBugs() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/bugs/"
+    var requestUrl = "https://acnhapi.com/v1/bugs/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -384,7 +384,7 @@ function getBugs() {
 
 function getFossils() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/fossils/"
+    var requestUrl = "https://acnhapi.com/v1/fossils/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -456,7 +456,7 @@ function getFossils() {
 
 function getSongs() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/songs/"
+    var requestUrl = "https://acnhapi.com/v1/songs/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -528,7 +528,7 @@ function getSongs() {
 
 function getArt() {
     DeleteRows()
-    var requestUrl = "http://acnhapi.com/v1/art/"
+    var requestUrl = "https://acnhapi.com/v1/art/"
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
