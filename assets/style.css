@@ -16,6 +16,131 @@ body {
     }
 } 
 
+.modal {
+    color: black;
+    z-index: 2;
+    text-align: center;
+    text-shadow: #c95252;
+    background-image: url(./img/modal2.jpg);
+    background-size: cover;
+}
+
+#modal-head {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 3vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px lightpink;
+    color: rgb(121, 250, 103);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 60vh;
+    /* background-image: url("./img/flowers.png") */
+}
+
+#title-head {
+    padding: 3vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px lightpink;
+    color: rgb(121, 250, 103);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 60vh;
+    /* background-image: url("./img/flowers.png") */
+}
+
+#mod-bod-title {
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 40vh;
+}
+
+#mod-bod-j {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 40vh;
+}
+
+
+#mod-bod-k {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 30vh;
+}
+
+
+#mod-bod-c {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 50vh;
+}
+
+
+#mod-bod-r {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 20vh;
+}
+
+#mod-bod-a {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 10vh;
+}
+
+#mod-bod-e {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 5vh;
+}
+
+#mod-bod-close {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: red;
+    min-width: 5vh;
+}
+
+#mod-title-close {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: red;
+    min-width: 40vh;
+}
+
+
 .box-titles{
     text-align: center;
     padding: 0%;
