@@ -89,12 +89,14 @@
                           <div id="location-btn">
                             <p id="list-group-item">
                               <label>
-                                <input type="checkbox" class="checkboxes" id="location" />
-                                <span>Ocean</span>
-                                <input type="checkbox" class="checkboxes" id="location" />
+                                <input type="checkbox" class="checkboxes" id="location-sea" />
+                                <span>Sea</span>
+                                <input type="checkbox" class="checkboxes" id="location-river" />
                                 <span>River</span>
-                                <input type="checkbox" class="checkboxes" id="location" />
+                                <input type="checkbox" class="checkboxes" id="location-pond" />
                                 <span>Pond</span>
+                                <input type="checkbox" class="checkboxes" id="location-pier" />
+                                <span>Pier</span>
                               </p>
                             </label>
                           </div>
@@ -104,11 +106,11 @@
                           <div id="price-btn">
                             <p id="list-group-item">
                               <label>
-                                <input type="checkbox" class="checkboxes" id="price-filter" />
+                                <input type="checkbox" class="checkboxes" id="price-filter-0k" />
                                 <span>0-5K</span>
-                                <input type="checkbox" class="checkboxes" id="price-filter" />
+                                <input type="checkbox" class="checkboxes" id="price-filter-5k" />
                                 <span>5K-10K</span>
-                                <input type="checkbox" class="checkboxes" id="price-filter" />
+                                <input type="checkbox" class="checkboxes" id="price-filter-10k" />
                                 <span>10K+</span>
                               </label>
                             </p>
@@ -121,13 +123,17 @@
                             <label>
                               <input type="checkbox" class="checkboxes" id="rarity-common" />
                               <span>Common</span>
+                              <input type="checkbox" class="checkboxes" id="rarity-uncommon" />
+                              <span>Uncommon</span>
                               <input type="checkbox" class="checkboxes" id="rarity-rare" />
                               <span>Rare</span>
+                              <input type="checkbox" class="checkboxes" id="rarity-ultra-rare" />
+                              <span>Ultra-Rare</span>
                             </label>
                           </p>
                     </div>
                         
-                    <button onclick="filterMonth()">Month</button>
+                    <!-- <button onclick="filterMonth()">Month</button>
 
                     <div id="month-btn">
                       <p id="list-group-item">
@@ -154,7 +160,7 @@
                           <span>Jul</span>
                         </label>
                       </p>
-                    </div>
+                    </div> -->
                     </div>
                     <!-- Filter Submit -->
                     <div class="card-action">
