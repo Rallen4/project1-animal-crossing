@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/style.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/style.css" />
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-    <title>AC:NH Island Manager</title>
-  </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
+<<<<<<< HEAD
+  <title>AC:NH Island Manager</title>
+</head>
+=======
   <body onload="getFish()">
     <header class="header">
       <nav class="nav-wrapper">
@@ -74,124 +72,185 @@
                       <!-- Filter Options -->
                       <!-- Dropdown Trigger -->
                       <button onclick="filterCompleted()">Completed</button>
+>>>>>>> dev
 
-                        <div id="completed-btn">
-                            <p id="list-group-item">
-                              <label>
-                                <input type="checkbox" class="checkboxes" id="name"/>
-                                <span>Completed</span>
-                              </label>
-                            </p>
-                        </div>
-
-                          <button onclick="filterLocation()">Location</button>
-
-                          <div id="location-btn">
-                            <p id="list-group-item">
-                              <label>
-                                <input type="checkbox" class="checkboxes" id="location-sea" />
-                                <span>Sea</span>
-                                <input type="checkbox" class="checkboxes" id="location-river" />
-                                <span>River</span>
-                                <input type="checkbox" class="checkboxes" id="location-pond" />
-                                <span>Pond</span>
-                                <input type="checkbox" class="checkboxes" id="location-pier" />
-                                <span>Pier</span>
-                              </p>
-                            </label>
-                          </div>
-                        
-                          <button onclick="filterPrice()">Price</button>
-
-                          <div id="price-btn">
-                            <p id="list-group-item">
-                              <label>
-                                <input type="checkbox" class="checkboxes" id="price-filter-0k" />
-                                <span>0-5K</span>
-                                <input type="checkbox" class="checkboxes" id="price-filter-5k" />
-                                <span>5K-10K</span>
-                                <input type="checkbox" class="checkboxes" id="price-filter-10k" />
-                                <span>10K+</span>
-                              </label>
-                            </p>
-                          </div>
-
-                        <button onclick="filterRarity()">Rarity</button>
-
-                        <div id="rarity-btn">
-                          <p id="list-group-item">
-                            <label>
-                              <input type="checkbox" class="checkboxes" id="rarity-common" />
-                              <span>Common</span>
-                              <input type="checkbox" class="checkboxes" id="rarity-uncommon" />
-                              <span>Uncommon</span>
-                              <input type="checkbox" class="checkboxes" id="rarity-rare" />
-                              <span>Rare</span>
-                              <input type="checkbox" class="checkboxes" id="rarity-ultra-rare" />
-                              <span>Ultra-Rare</span>
-                            </label>
-                          </p>
-                    </div>
-                        
-                    <!-- <button onclick="filterMonth()">Month</button>
-
-                    <div id="month-btn">
-                      <p id="list-group-item">
-                        <label>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Oct</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Nov</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Dec</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Jan</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Feb</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Mar</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Apr</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>May</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Jun</span>
-                          <input type="checkbox" class="checkboxes" id="month" />
-                          <span>Jul</span>
-                        </label>
-                      </p>
-                    </div> -->
-                    </div>
-                    <!-- Filter Submit -->
-                    <div class="card-action">
-                        <button onclick="filterAll()" class="filter-btn">Filter</button>
-                        <button onclick="location.reload()" class="filter-btn">Refresh</button>
-                    </div>
-                </div>
+<body onload="getFish()">
+  <header class="header">
+    <nav class="nav-wrapper">
+      <div class="container">
+        <a href="" class="sidenav-trigger" data-target="mobile-menu">
+          <i class="material-icons">menu icon</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="./pages/villagers.html">Villager Data Source</a></li>
+          <li><a href="#">Repository</a></li>
+          <li><a href="#">Creators</a></li>
+        </ul>
+        <ul class="sidenav grey lighten-2" id="mobile-menu">
+          <li><a href="./pages/villagers.html">Villager Data Source</a></li>
+          <li><a href="#">Repository</a></li>
+          <li><a href="#">Creators</a></li>
+        </ul>
       </div>
-      <!-- Resulting Content Body -->
-      <div class="col s8">
-        <!-- Table Header -->
-            <table class="content">
-              <tr>
-                <th id="header-checkbox"></th>
-                <th id="header-img"></th>
-                <th id="header-name">Name</th>
-                <th id="header-location">Location</th>
-                <th id="header-rarity">Rarity</th>
-                <th id="header-price">Price</th>
-                <th id="header-months">Months</th>
-              </tr>
-            </table>
+    </nav>
+  </header>
+
+  <div class="row">
+    <div class="col s4">
+      <!--Category Section  -->
+      <div class="card-1">
+        <!-- background img for Category -->
+        <div class="card-image">
+          <img src="" />
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+          <!-- Category Title -->
+          <h3 class="box-titles">Category</h3>
+          <!-- Category Options -->
+          <ul class="list-group">
+            <!-- Option 1 -->
+            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFish()">Fish</a>
+            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSeaCreatures()">Sea Creatures</a>
+            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getBugs()">Bugs</a>
+            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFossils()">Fossils</a>
+            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSongs()">Songs</a>
+            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getArt()">Art</a>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="card-2">
+
+        <!-- background img for Filter section -->
+        <div class="card-image">
+          <img src="" />
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+
+          <!-- Filter Title -->
+          <h3 class="box-titles">Filter</h3>
+
+          <!-- Filter Options -->
+          <!-- completed filters -->
+          <div id="completed-btn" class="filter-line">
+            <p>
+              <label>
+                <input type="checkbox" class="checkboxes" id="name" />
+                <span>Completed</span>
+              </label>
+            </p>
+          </div>
+
+          <!-- location filters -->
+          <div id="location-btn" class="row filter-line">
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="location-river"/>
+                <span>River</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="location-pond"/>
+                <span>Pond</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="location-sea"/>
+                <span>Sea</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="location-pier"/>
+                <span>Pier</span>
+              </label>
+            </p>
+          </div>
+          
+          <!-- price filters -->
+          <div id="price-btn" class="row filter-line">
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="price-filter-0k"/>
+                <span>0-5k</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="price-filter-5k"/>
+                <span>5K-10K</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="price-filter-10k"/>
+                <span>10K+</span>
+              </label>
+            </p>
+          </div>
+          
+          <!-- rarity filters -->
+          <div id="rarity-btn" class="row filter-line">
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="rarity-common"/>
+                <span>Common</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="rarity-uncommon"/>
+                <span>Uncommon</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="rarity-rare"/>
+                <span>Rare</span>
+              </label>
+            </p>
+            <p class="col s-3">
+              <label>
+                <input type="checkbox" class="checkboxes" id="rarity-ultra-rare"/>
+                <span>Ultra-Rare</span>
+              </label>
+            </p>
+          </div>
+        </div>
+        <!-- Filter Submit -->
+        <div class="card-action">
+          <button onclick="filterAll()" class="filter-btn">Filter</button>
+          <button onclick="location.reload()" class="filter-btn">Refresh</button>
+        </div>
       </div>
     </div>
+    <!-- Resulting Content Body -->
+    <div class="col s8">
+      <!-- Table Header -->
+      <table class="content">
+        <tr>
+          <th id="header-checkbox"></th>
+          <th id="header-img"></th>
+          <th id="header-name">Name</th>
+          <th id="header-location">Location</th>
+          <th id="header-rarity">Rarity</th>
+          <th id="header-price">Price</th>
+          <th id="header-months">Months</th>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
-    <script src="./assets/script.js" type="text/javascript"></script>
-    </body>
-    
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+  <script src="./assets/script.js" type="text/javascript"></script>
+</body>
+
 </html>
