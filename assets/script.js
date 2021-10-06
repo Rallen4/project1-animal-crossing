@@ -908,6 +908,7 @@ function getArt() {
         )
 }
 
+// clears the table of the villager information
 function DeleteVillagerRows() {
     var rowCount = villagerTable.rows.length;
     for (var i = rowCount - 1; i > 0; i--) {
@@ -915,7 +916,9 @@ function DeleteVillagerRows() {
     }
 }
 
+// fetches data from API
 function getVillagers(){
+    // loop to get all villagers individual data
     for (i = 0; i < villagers.length; i++) {
       var villagerUrl =
         "https://www.instafluff.tv/ACDB/Villagers/" + villagers[i] + ".json";
@@ -924,13 +927,17 @@ function getVillagers(){
           return response.json();
         })
         .then(function (data) {
+            // put all the data to the page on page load
             renderVillager(data);
+            // pushes all data into empty array as objects
             allVillagers.push(data);
         });
     }
 }
-  
+
+// function to put villagers data on page
 function renderVillager(data) {
+    // create new row for villager
     var newRow = villagerTable.insertRow(1);
     var colCheckbox = newRow.insertCell(0);
     // creates a checkbox in that cell
@@ -955,59 +962,86 @@ function renderVillager(data) {
     colHobby.innerText = data.hobby;
 }
 
+// renders the villagers from array to the page
 function renderManyVillagers(allVillagers) {
     for (let i = 0; i < allVillagers.length; i++) {
+        // puts villager info from the empty, now full, array onto page
         renderVillager(allVillagers[i]);
     }
 }
 
+// click to sort by name
 document.querySelector("#villager-name").addEventListener("click", function (event){
     event.preventDefault();
+    // deletes the previously rendered rows 
     DeleteVillagerRows();
+    // if the first row is lower than the second row then sort by A-Z
     if (allVillagers[0].name["US-en"] < allVillagers[1].name["US-en"]){
         allVillagers.sort((a,b)=> (a.name["US-en"] < b.name["US-en"] ? 1 : -1));
-        renderManyVillagers(allVillagers);
-    }else{
-        allVillagers.sort((a,b)=> (a.name["US-en"] > b.name["US-en"] ? 1 : -1));
-        renderManyVillagers(allVillagers);
+    
     }
+    // if not, then sort Z-A
+    else{
+        allVillagers.sort((a,b)=> (a.name["US-en"] > b.name["US-en"] ? 1 : -1));
+
+    }
+    // render villagers in the sorted by name array onto page
+    renderManyVillagers(allVillagers);
 })
 
+// set clicked value to true
 var personalityClicked = true;
+// click to sort alphabetically by personality
 document.querySelector("#villager-personality").addEventListener("click", function (event){
     event.preventDefault();
     DeleteVillagerRows();
-    // if villagerClicked sort A-Z
+    // if villagerClicked, sort A-Z
     if(personalityClicked){
         allVillagers.sort((a,b)=> (a.personality < b.personality ? 1 : -1));
         personalityClicked = false;
-    }else{
+    }
+    // if not true, then sort Z-A
+    else{
         allVillagers.sort((a,b)=> (a.personality > b.personality ? 1 : -1));
         personalityClicked = true;
     }
+    // render villagers sorted alphabetically by personality
     renderManyVillagers(allVillagers);
 })
 
+// click to sort alphabetically by birthday
 document.querySelector("#villager-birthday").addEventListener("click", function (event){
     event.preventDefault();
     DeleteVillagerRows();
-    // moment format from ("MMMM Do")
-    var villagerBirthday = moment(allVillagers.birthday).format()
-    allVillagers.sort((a,b)=> (a.birthday < b.birthday ? 1 : -1));
+    // if first row is lower than second, then sort A-Z
+    if(allVillagers[0].birthday < allVillagers[1].birthday){
+        allVillagers.sort((a,b)=> (a.birthday < b.birthday ? 1 : -1));
+    }
+    // if not, then sort Z-A
+    else{
+        allVillagers.sort((a,b)=> (a.birthday > b.birthday ? 1 : -1));
+    }
+    // renders villagers sorted by alphabetical birthday
     renderManyVillagers(allVillagers);
 })
 
+// set clicked value to true
 var hobbyClicked = true;
+// click to sort alphabetically by hobby
 document.querySelector("#villager-hobbies").addEventListener("click", function (event){
     event.preventDefault();
     DeleteVillagerRows();
+    // if clicked then sort A-Z
     if (hobbyClicked){
         allVillagers.sort((a,b)=> (a.hobby < b.hobby ? 1 : -1));
         hobbyClicked = false;
-    } else{
+    } 
+    // if not clicked then sort Z-A
+    else{
         allVillagers.sort((a,b)=> (a.hobby > b.hobby ? 1 : -1));
         hobbyClicked = true;
     }
+    // renders villagers sorted alphabetically hobby
     renderManyVillagers(allVillagers);
 })
 
