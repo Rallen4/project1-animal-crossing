@@ -620,3 +620,7 @@ function getArt() {
         }
         )
 }
+
+$('#mod-btn').on('click', function() {
+    $('#creator-modal').show();
+});

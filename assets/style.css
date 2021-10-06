@@ -16,6 +16,64 @@ body {
     }
 } 
 
+.modal {
+    color: black;
+    z-index: 2;
+    text-align: center;
+    text-shadow: #c95252;
+}
+
+#modal-head {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 3vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px #c95252;
+    color: rgb(100, 26, 4);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("./img/flowers.png")
+}
+
+#mod-bod-j {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px #c95252;
+    color: rgb(214, 228, 94);
+}
+
+
+#mod-bod-k {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px #c95252;
+    color: rgb(214, 228, 94);
+}
+
+
+#mod-bod-c {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px #c95252;
+    color: rgb(214, 228, 94);
+}
+
+
+.mod-bod-r {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px #c95252;
+    color: rgb(214, 228, 94);
+}
+
 .box-titles{
     text-align: center;
     padding: 0%;
