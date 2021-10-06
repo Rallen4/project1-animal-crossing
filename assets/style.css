@@ -20,6 +20,13 @@ body {
     text-align: center;
     padding: 0%;
     font-size: 2rem;
+    text-shadow: 0.5px 0.5px rgb(229, 139, 252);
+}
+
+.btn-titles{
+    text-align: center;
+    padding: 0%;
+    text-shadow: 0.5px 0.5px rgb(229, 139, 252);
 }
 
 .filter-btn {
@@ -43,26 +50,26 @@ body {
     /* background-image: url(./img/flowers.png); */
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0.7px 0.7px rgb(25, 165, 153);
+    text-shadow: 0.7px 0.7px rgb(229, 139, 252);
     border-style: ridge;
     justify-content: center;
-    background-color: rgb(198, 248, 221);
+    background-color: #FFFFFF;
+
     /* border-bottom-style:ridge; */
     
     min-height: 25vh;
 }
 
-
 .card-2 {
     /* background-image: url(./img/flowers.png); */
     background-size: cover;
     background-repeat: no-repeat;
-    /* text-shadow: 0.7px 0.7px rgb(25, 165, 153); */
+    /* text-shadow: 0.7px 0.7px rgb(229, 139, 252); */
     text-emphasis-color: black;
     /* justify-content: center; */
     /* align-items: center; */
     border-style: ridge;
-    background-color: rgb(198, 248, 221);
+    background-color: #FFFFFF;
     /* max-height: 35vh; */
     /* border-top-style: ridge; */
 }
@@ -140,6 +147,9 @@ button:hover{
 
 .box-titles{
     margin: 0px;
+}
+
+.card-action {
 }
 
 #villagerTable{
