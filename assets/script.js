@@ -408,37 +408,37 @@ function DeleteRows() {
   }
 }
 
-function toggleCompletion(event){
+function toggleCompletion(event) {
     var checked = event.target.checked;
     var fishName = event.target.getAttribute("data-fish-id");
     localStorage.setItem(fishName, checked);
 };
 
-function toggleCompletion(event){
+function toggleCompletion(event) {
     var checked = event.target.checked;
     var seaName = event.target.getAttribute("data-sea-id");
     localStorage.setItem(seaName, checked);
 };
 
-function toggleCompletion(event){
+function toggleCompletion(event) {
     var checked = event.target.checked;
     var bugName = event.target.getAttribute("data-bug-id");
     localStorage.setItem(bugName, checked);
 };
 
-function toggleCompletion(event){
+function toggleCompletion(event) {
     var checked = event.target.checked;
     var fossilName = event.target.getAttribute("data-fossil-id");
     localStorage.setItem(fossilName, checked);
 };
 
-function toggleCompletion(event){
+function toggleCompletion(event) {
     var checked = event.target.checked;
     var songName = event.target.getAttribute("data-song-id");
     localStorage.setItem(songName, checked);
 };
 
-function toggleCompletion(event){
+function toggleCompletion(event) {
     var checked = event.target.checked;
     var artName = event.target.getAttribute("data-art-id");
     localStorage.setItem(artName, checked);
@@ -446,30 +446,26 @@ function toggleCompletion(event){
 
 
 function getFish() {
-  DeleteRows();
-  // define URL for API
-  var requestUrl = "https://acnhapi.com/v1/fish/";
-  // fetching data of API
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    // reformatting data to fit needs
-    .then(function (data) {
-      data = Object.values(data);
-      console.log(data);
+    DeleteRows()
+    // define URL for API
+    var requestUrl = 'https://acnhapi.com/v1/fish/';
+    // fetching data of API
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        // reformatting data to fit needs
+        .then(function (data) {
+            data = Object.values(data);
 
-      $(data).each(function (i, e) {
-        // create new row under the header
-        var newRow = mainContent.insertRow(1);
-        // inserts a cell in the first column "checkbox"
-        var colCheckbox = newRow.insertCell(0);
-        // creates a checkbox in that cell
-        colCheckbox.innerHTML =
-          `<label>
-                <input class="fish" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fish-id="` +
-          e.name["name-USen"] +
-          `"/>
+            $(data).each(function (i, e) {
+                // create new row under the header
+                var newRow = mainContent.insertRow(1);
+                // inserts a cell in the first column "checkbox"
+                var colCheckbox = newRow.insertCell(0)
+                // creates a checkbox in that cell
+                colCheckbox.innerHTML = `<label>
+                <input class="fish line-item" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fish-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -498,21 +494,16 @@ function getFish() {
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = e.availability["month-northern"];
-                
-                var fishName= e.name['name-USen'];
-                console.log(fishName);
+
+                var fishName = e.name['name-USen'];
                 var checkbox = document.querySelector(`input[data-fish-id="` + fishName + `"]`);
-                console.log(checkbox, checkbox.checked)
                 var fishValue = localStorage.getItem(fishName)
-                console.log(fishValue, typeof fishValue);
 
                 if (localStorage.getItem(fishName) == undefined) {
                     localStorage.setItem(fishName, checkbox.checked);
                 } else {
-                    checkbox.checked= fishValue == "true"
+                    checkbox.checked = fishValue == "true"
                 }
-
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-fish-id"));
             });
 
         var fishName = e.name["name-USen"];
@@ -556,21 +547,6 @@ function getSeaCreatures() {
     });
 }
 
-function getBugs() {
-  var bugUrl = "http://acnhapi.com/v1/bugs/";
-
-  fetch(bugUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      var allData = data;
-      // creates array of keys for data (bug names needed for new URLs)
-      var bugNames = Object.keys(allData);
-      // pushes all names into empty bug array
-      allBugs.push(bugNames);
-    });
-}
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
 
@@ -582,11 +558,9 @@ function filterAll() {
         $(".line-item").each(function () {
             // console.log($(this)[0].checked)
             if ($(this)[0].checked == true) {
-                console.log("hello");
                 $(this).parent().parent().parent().css("display", "none")
             }
         })
-
     }
 
     // Show only Common
@@ -594,7 +568,8 @@ function filterAll() {
         $(".rarity-item").each(function () {
             console.log($(this).innerText);
             if ($(this)[0].innerText !== "Common") {
-                $(this).parent().css("display", "none")            }
+                $(this).parent().css("display", "none")
+            }
         })
     }
 
@@ -609,11 +584,10 @@ function getSeaCreatures() {
         .then(function (response) {
             return response.json();
         })
-    // reformatting data to fit needs
+        // reformatting data to fit needs
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
-            
+
             $(data).each(function (i, e) {
                 // create new row under the header
                 var newRow = mainContent.insertRow(1);
@@ -621,7 +595,7 @@ function getSeaCreatures() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="sea-creatures" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-sea-id="` +  e.name['name-USen'] + `"/>
+                <input class="sea-creatures" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-sea-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -648,8 +622,8 @@ function getSeaCreatures() {
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = e.availability["month-northern"];
-                
-                var seaName= e.name['name-USen'];
+
+                var seaName = e.name['name-USen'];
                 console.log(seaName);
                 var checkbox = document.querySelector(`input[data-sea-id="` + seaName + `"]`);
                 console.log(checkbox, checkbox.checked)
@@ -659,7 +633,7 @@ function getSeaCreatures() {
                 if (localStorage.getItem(seaName) == undefined) {
                     localStorage.setItem(seaName, checkbox.checked);
                 } else {
-                    checkbox.checked= seaValue == "true"
+                    checkbox.checked = seaValue == "true"
                 }
 
                 console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-sea-id"));
@@ -688,7 +662,7 @@ function getBugs() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="bugs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-bug-id="` +  e.name['name-USen'] + `"/>
+                <input class="bugs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-bug-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -715,8 +689,8 @@ function getBugs() {
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = e.availability["month-northern"];
-                
-                var bugName= e.name['name-USen'];
+
+                var bugName = e.name['name-USen'];
                 console.log(bugName);
                 var checkbox = document.querySelector(`input[data-bug-id="` + bugName + `"]`);
                 console.log(checkbox, checkbox.checked)
@@ -726,7 +700,7 @@ function getBugs() {
                 if (localStorage.getItem(bugName) == undefined) {
                     localStorage.setItem(bugName, checkbox.checked);
                 } else {
-                    checkbox.checked= bugValue == "true"
+                    checkbox.checked = bugValue == "true"
                 }
 
                 console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-bug-id"));
@@ -734,7 +708,6 @@ function getBugs() {
 
         }
         )
-
 }
 
 function getFossils() {
@@ -755,7 +728,7 @@ function getFossils() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="fossils" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fossil-id="` +  e.name['name-USen'] + `"/>
+                <input class="fossils" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fossil-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -782,8 +755,8 @@ function getFossils() {
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = "N/A";
-                
-                var fossilName= e.name['name-USen'];
+
+                var fossilName = e.name['name-USen'];
                 console.log(fossilName);
                 var checkbox = document.querySelector(`input[data-fossil-id="` + fossilName + `"]`);
                 console.log(checkbox, checkbox.checked)
@@ -793,7 +766,7 @@ function getFossils() {
                 if (localStorage.getItem(fossilName) == undefined) {
                     localStorage.setItem(fossilName, checkbox.checked);
                 } else {
-                    checkbox.checked= fossilValue == "true"
+                    checkbox.checked = fossilValue == "true"
                 }
 
                 console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-fossil-id"));
@@ -821,7 +794,7 @@ function getSongs() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="songs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-song-id="` +  e.name['name-USen'] + `"/>
+                <input class="songs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-song-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -848,8 +821,8 @@ function getSongs() {
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = "N/A";
-                
-                var songName= e.name['name-USen'];
+
+                var songName = e.name['name-USen'];
                 console.log(songName);
                 var checkbox = document.querySelector(`input[data-song-id="` + songName + `"]`);
                 console.log(checkbox, checkbox.checked)
@@ -859,7 +832,7 @@ function getSongs() {
                 if (localStorage.getItem(songName) == undefined) {
                     localStorage.setItem(songName, checkbox.checked);
                 } else {
-                    checkbox.checked= songValue == "true"
+                    checkbox.checked = songValue == "true"
                 }
 
                 console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-song-id"));
@@ -887,7 +860,7 @@ function getArt() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="art" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-art-id="` +  e.name['name-USen'] + `"/>
+                <input class="art" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-art-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -914,8 +887,8 @@ function getArt() {
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = "N/A";
-                
-                var artName= e.name['name-USen'];
+
+                var artName = e.name['name-USen'];
                 console.log(artName);
                 var checkbox = document.querySelector(`input[data-art-id="` + artName + `"]`);
                 console.log(checkbox, checkbox.checked)
@@ -925,7 +898,7 @@ function getArt() {
                 if (localStorage.getItem(artName) == undefined) {
                     localStorage.setItem(artName, checkbox.checked);
                 } else {
-                    checkbox.checked= artValue == "true"
+                    checkbox.checked = artValue == "true"
                 }
 
                 console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-art-id"));
@@ -1019,6 +992,7 @@ document.querySelector("#villager-birthday").addEventListener("click", function 
     event.preventDefault();
     DeleteVillagerRows();
     // moment format from ("MMMM Do")
+    var villagerBirthday = moment(allVillagers.birthday).format()
     allVillagers.sort((a,b)=> (a.birthday < b.birthday ? 1 : -1));
     renderManyVillagers(allVillagers);
 })
@@ -1040,44 +1014,44 @@ document.querySelector("#villager-hobbies").addEventListener("click", function (
 function filterCompleted() {
     var x = document.getElementById("completed-btn");
     if (x.style.display === "none") {
-      x.style.display = "block";
+        x.style.display = "block";
     } else {
-      x.style.display = "none";
+        x.style.display = "none";
     }
 }
 
 function filterLocation() {
     var x = document.getElementById("location-btn");
     if (x.style.display === "none") {
-      x.style.display = "block";
+        x.style.display = "block";
     } else {
-      x.style.display = "none";
+        x.style.display = "none";
     }
 }
 
 function filterPrice() {
     var x = document.getElementById("price-btn");
     if (x.style.display === "none") {
-      x.style.display = "block";
+        x.style.display = "block";
     } else {
-      x.style.display = "none";
+        x.style.display = "none";
     }
 }
 
 function filterRarity() {
     var x = document.getElementById("rarity-btn");
     if (x.style.display === "none") {
-      x.style.display = "block";
+        x.style.display = "block";
     } else {
-      x.style.display = "none";
+        x.style.display = "none";
     }
 }
 
 function filterMonth() {
     var x = document.getElementById("month-btn");
     if (x.style.display === "none") {
-      x.style.display = "block";
+        x.style.display = "block";
     } else {
-      x.style.display = "none";
+        x.style.display = "none";
     }
 }
