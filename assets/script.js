@@ -624,3 +624,11 @@ function getArt() {
 $('#mod-btn').on('click', function() {
     $('#creator-modal').show();
 });
+
+$('#title-btn').on('click', function() {
+    $('#title-modal').show();
+});
+
+// $('#title-btn').on('click', function() {
+//     $('#mod-bod-close').close();
+// });
