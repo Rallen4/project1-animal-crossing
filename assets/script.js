@@ -85,6 +85,8 @@ function getFish() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
@@ -95,6 +97,8 @@ function getFish() {
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -119,6 +123,15 @@ function getFish() {
 
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
+var rarityUncommonEl = document.getElementById("rarity-uncommon")
+var rarityUltraRareEl = document.getElementById("rarity-ultra-rare")
+var locationSeaEl = document.getElementById("location-sea")
+var locationRiverEl = document.getElementById("location-river")
+var locationPondEl = document.getElementById("location-pond")
+var locationPierEl = document.getElementById("location-pier")
+var priceFilter0kEl = document.getElementById("price-filter-0k")
+var priceFilter5kEl = document.getElementById("price-filter-5k")
+var priceFilter10kEl = document.getElementById("price-filter-10k")
 
 function filterAll() {
     // console.log($(".rarity-item"));
@@ -142,6 +155,88 @@ function filterAll() {
             }
         })
     }
+
+    // show only Uncommon
+    if (rarityUncommonEl.checked == true) {
+        $(".rarity-item").each(function () {
+            if ($(this)[0].innerText !== "Uncommon") {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Rare
+    if (rarityRareEl.checked == true) {
+        $(".rarity-item").each(function () {
+            if ($(this)[0].innerText !== "Rare") {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Ultra-Rare
+    if (rarityUltraRareEl.checked == true) {
+        $(".rarity-item").each(function () {
+            if ($(this)[0].innerText !== "Ultra-rare") {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+
+    // show only Sea
+    if (locationSeaEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("Sea"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only River
+    if (locationRiverEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("River"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Pond
+    if (locationPondEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("Pond"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Pier
+    if (locationPierEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("Pier"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only 0-5000
+    if (priceFilter0kEl.checked == true) {
+        $(".location-item").each(function () {
+            if ($(this)[0] > 5000) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only 5001-10000
+    if (priceFilter5kEl.checked == true) {
+        $(".location-item").each(function () {
+            if ($(this)[0] < 5000 || $(this)[0] > 9999) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    if (priceFilter10kEl.checked == true) {
+        $(".location-item").each(function () {
+            if ($(this)[0] < 10000) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+
 
 }
 
@@ -180,14 +275,20 @@ function getSeaCreatures() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -248,14 +349,20 @@ function getBugs() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -316,14 +423,20 @@ function getFossils() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -384,14 +497,20 @@ function getSongs() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell: Fix this!!!!!
                 colPrice.innerText = "N/A";
                 // Create Months Cell
@@ -451,14 +570,20 @@ function getArt() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = "N/A";
                 // Create Months Cell
