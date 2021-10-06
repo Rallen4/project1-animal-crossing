@@ -1171,47 +1171,4 @@ document.querySelector("#villager-hobbies").addEventListener("click", function (
     renderManyVillagers(allVillagers);
 })
 
-function filterCompleted() {
-    var x = document.getElementById("completed-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
 
-function filterLocation() {
-    var x = document.getElementById("location-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function filterPrice() {
-    var x = document.getElementById("price-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function filterRarity() {
-    var x = document.getElementById("rarity-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function filterMonth() {
-    var x = document.getElementById("month-btn");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}

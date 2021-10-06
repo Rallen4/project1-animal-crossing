@@ -50,11 +50,6 @@ body {
     align-items: center;
 }
 
-#location-btn, #price-btn, #completed-btn, #month-btn, #rarity-btn {
-    display: none;
-
-    /* grid-template-columns: auto; */
-}
 
 button {
     display:inline-block;
@@ -141,3 +136,4 @@ button:hover{
     text-align: center;
     text-shadow: 0.5px 0.5px red;
 }
+
