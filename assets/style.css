@@ -8,13 +8,13 @@ body {
     background-image: url(./img/animals.jpg);
     background-size: cover;
     background-position: center;
-    min-height: 45vh;
+    min-height: 35vh;
 }
-@media  screen and (max-width: 670px) {
-    .header{
+@media  screen and (max-width: 670px) { */
+     .header{ 
         min-height: 200px;
     }
-}
+} 
 
 
 .content {
@@ -32,35 +32,42 @@ body {
 }
 
 .card-1 {
-    /* background-image: url(./img/owl.jpg); */
+    background-image: url(./img/flowers.png);
     background-size: cover;
     background-repeat: no-repeat;
     text-shadow: 0.7px 0.7px rgb(25, 165, 153);
-    color:rgb(238, 231, 222)
-    /* min-height: 400px; */
+    border-style: ridge;
+    justify-content: center;
+    background-color: rgb(198, 248, 221);
+    /* border-bottom-style:ridge; */
+    
+    /* min-height: 35vh; */
 }
+
 
 .card-2 {
     background-image: url(./img/flowers.png);
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0.7px 0.7px rgb(25, 165, 153);
-    min-height: 400px;
+    /* text-shadow: 0.7px 0.7px rgb(25, 165, 153); */
+    text-emphasis-color: black;
+    /* min-height: 35vh; */
     justify-content: center;
     align-items: center;
+    border-style: ridge;
+    background-color: rgb(198, 248, 221);
+    /* border-top-style: ridge; */
 }
 
 #location-btn, #price-btn, #completed-btn, #month-btn, #rarity-btn {
     display: none;
-
-    /* grid-template-columns: auto; */
 }
 
 button {
     display:inline-block;
-    padding:0.35em 1.2em;
+    padding:1em 1.2em;
     border:0.1em solid #FFFFFF;
-    margin:0 0.3em 0.3em 0;
+    margin:0 auto;
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
@@ -69,6 +76,7 @@ button {
     color:#0b9287;
     text-align:center;
     transition: all 0.2s;
+    min-width: 15vh;
 }
 button:hover{
     color:#c95252;
@@ -81,9 +89,16 @@ button:hover{
     }
 }
 
-.checkboxes {
-    color: black;
+
+.card-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
+
 #header-checkbox {
     width:5%
 }
