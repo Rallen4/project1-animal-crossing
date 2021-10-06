@@ -59,12 +59,6 @@ body {
     /* border-top-style: ridge; */
 }
 
-<<<<<<< HEAD
-=======
-#location-btn, #price-btn, #completed-btn, #month-btn, #rarity-btn {
-    display: none;
-}
->>>>>>> dev
 
 button {
     display:inline-block;
