@@ -408,41 +408,42 @@ function DeleteRows() {
   }
 }
 
-function toggleCompletion(event) {
+function toggleCompletionFish(event) {
     var checked = event.target.checked;
     var fishName = event.target.getAttribute("data-fish-id");
     localStorage.setItem(fishName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionSea(event) {
     var checked = event.target.checked;
     var seaName = event.target.getAttribute("data-sea-id");
     localStorage.setItem(seaName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionBug(event) {
     var checked = event.target.checked;
     var bugName = event.target.getAttribute("data-bug-id");
     localStorage.setItem(bugName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionFossil(event) {
     var checked = event.target.checked;
     var fossilName = event.target.getAttribute("data-fossil-id");
     localStorage.setItem(fossilName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionSong(event) {
     var checked = event.target.checked;
     var songName = event.target.getAttribute("data-song-id");
     localStorage.setItem(songName, checked);
 };
 
-function toggleCompletion(event) {
+function toggleCompletionArt(event) {
     var checked = event.target.checked;
     var artName = event.target.getAttribute("data-art-id");
     localStorage.setItem(artName, checked);
 };
+
 
 
 function getFish() {
@@ -465,7 +466,7 @@ function getFish() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="fish line-item" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fish-id="` + e.name['name-USen'] + `"/>
+                <input class="fish line-item" onclick="toggleCompletionFish(event)" type="checkbox" data-completed=false data-fish-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -478,6 +479,8 @@ function getFish() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
@@ -488,6 +491,8 @@ function getFish() {
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -549,6 +554,15 @@ function getSeaCreatures() {
 
 var rarityCommonEl = document.getElementById("rarity-common");
 var rarityRareEl = document.getElementById("rarity-rare")
+var rarityUncommonEl = document.getElementById("rarity-uncommon")
+var rarityUltraRareEl = document.getElementById("rarity-ultra-rare")
+var locationSeaEl = document.getElementById("location-sea")
+var locationRiverEl = document.getElementById("location-river")
+var locationPondEl = document.getElementById("location-pond")
+var locationPierEl = document.getElementById("location-pier")
+var priceFilter0kEl = document.getElementById("price-filter-0k")
+var priceFilter5kEl = document.getElementById("price-filter-5k")
+var priceFilter10kEl = document.getElementById("price-filter-10k")
 
 function filterAll() {
     // console.log($(".rarity-item"));
@@ -573,6 +587,88 @@ function filterAll() {
         })
     }
 
+    // show only Uncommon
+    if (rarityUncommonEl.checked == true) {
+        $(".rarity-item").each(function () {
+            if ($(this)[0].innerText !== "Uncommon") {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Rare
+    if (rarityRareEl.checked == true) {
+        $(".rarity-item").each(function () {
+            if ($(this)[0].innerText !== "Rare") {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Ultra-Rare
+    if (rarityUltraRareEl.checked == true) {
+        $(".rarity-item").each(function () {
+            if ($(this)[0].innerText !== "Ultra-rare") {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+
+    // show only Sea
+    if (locationSeaEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("Sea"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only River
+    if (locationRiverEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("River"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Pond
+    if (locationPondEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("Pond"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only Pier
+    if (locationPierEl.checked == true) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].includes("Pier"))) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only 0-5000
+    if (priceFilter0kEl.checked == true) {
+        $(".location-item").each(function () {
+            if ($(this)[0] > 5000) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    // show only 5001-10000
+    if (priceFilter5kEl.checked == true) {
+        $(".location-item").each(function () {
+            if ($(this)[0] < 5000 || $(this)[0] > 9999) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+    if (priceFilter10kEl.checked == true) {
+        $(".location-item").each(function () {
+            if ($(this)[0] < 10000) {
+                $(this).parent().css('display', 'none')
+            }
+        })
+    }
+
+
 }
 
 function getSeaCreatures() {
@@ -595,7 +691,7 @@ function getSeaCreatures() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="sea-creatures" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-sea-id="` + e.name['name-USen'] + `"/>
+                <input class="sea-creatures" onclick="toggleCompletionSea(event)" type="checkbox" data-completed=false data-sea-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -608,14 +704,20 @@ function getSeaCreatures() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -662,7 +764,7 @@ function getBugs() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="bugs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-bug-id="` + e.name['name-USen'] + `"/>
+                <input class="bugs" onclick="toggleCompletionBug(event)" type="checkbox" data-completed=false data-bug-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -675,14 +777,20 @@ function getBugs() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -728,7 +836,7 @@ function getFossils() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="fossils" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-fossil-id="` + e.name['name-USen'] + `"/>
+                <input class="fossils" onclick="toggleCompletionFossil(event)" type="checkbox" data-completed=false data-fossil-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -741,14 +849,20 @@ function getFossils() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = e.price.toLocaleString();
                 // Create Months Cell
@@ -794,7 +908,7 @@ function getSongs() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="songs" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-song-id="` + e.name['name-USen'] + `"/>
+                <input class="songs" onclick="toggleCompletionSong(event)" type="checkbox" data-completed=false data-song-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -807,14 +921,20 @@ function getSongs() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell: Fix this!!!!!
                 colPrice.innerText = "N/A";
                 // Create Months Cell
@@ -860,7 +980,7 @@ function getArt() {
                 var colCheckbox = newRow.insertCell(0)
                 // creates a checkbox in that cell
                 colCheckbox.innerHTML = `<label>
-                <input class="art" onclick="toggleCompletion(event)" type="checkbox" data-completed=false data-art-id="` + e.name['name-USen'] + `"/>
+                <input class="art" onclick="toggleCompletionArt(event)" type="checkbox" data-completed=false data-art-id="` + e.name['name-USen'] + `"/>
                 <span></span>
               </label>`
                 // insert a cell in the second column "image"
@@ -873,14 +993,20 @@ function getArt() {
                 colName.innerText = e.name['name-USen'];
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
+                // add class to Location
+                $(colLocation).addClass("location-item")
                 // add Location to Location Cell
                 colLocation.innerText = "N/A";
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
+                // add class to rarity
+                $(colRarity).addClass("rarity-item")
                 // add rarity to rarity cell
                 colRarity.innerText = "N/A";
                 // create price cell
                 var colPrice = newRow.insertCell(5);
+                // add class to price cell
+                $(colPrice).addClass("price-item")
                 // add price to price cell
                 colPrice.innerText = "N/A";
                 // Create Months Cell
