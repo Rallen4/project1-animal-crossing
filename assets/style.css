@@ -59,10 +59,6 @@ body {
     /* border-top-style: ridge; */
 }
 
-#location-btn, #price-btn, #completed-btn, #month-btn, #rarity-btn {
-    display: none;
-}
-
 button {
     display:inline-block;
     padding:1em 1.2em;
