@@ -614,7 +614,7 @@ function filterAll() {
 
     // show only Sea
     if (locationSeaEl.checked == true) {
-        $(".location-item").each(function () {
+        $("#location-sea").each(function () {
             if (!($(this)[0].includes("Sea"))) {
                 $(this).parent().css('display', 'none')
             }
@@ -622,7 +622,7 @@ function filterAll() {
     }
     // show only River
     if (locationRiverEl.checked == true) {
-        $(".location-item").each(function () {
+        $("#location-river").each(function () {
             if (!($(this)[0].includes("River"))) {
                 $(this).parent().css('display', 'none')
             }
@@ -1096,6 +1096,7 @@ function renderManyVillagers(allVillagers) {
     }
 }
 
+// set clicked value to true
 // click to sort by name
 document.querySelector("#villager-name").addEventListener("click", function (event){
     event.preventDefault();
