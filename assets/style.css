@@ -41,7 +41,7 @@ body {
     background-color: rgb(198, 248, 221);
     /* border-bottom-style:ridge; */
     
-    min-height: 35vh;
+    /* min-height: 35vh; */
 }
 
 
@@ -51,7 +51,7 @@ body {
     background-repeat: no-repeat;
     /* text-shadow: 0.7px 0.7px rgb(25, 165, 153); */
     text-emphasis-color: black;
-    min-height: 35vh;
+    /* min-height: 35vh; */
     justify-content: center;
     align-items: center;
     border-style: ridge;
