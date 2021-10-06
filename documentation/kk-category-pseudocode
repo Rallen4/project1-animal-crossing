@@ -1,0 +1,14 @@
+GIVEN user is presented with a list of categories
+WHEN user clicks on the button
+THEN they are given an unaltered list of each item that fits that category
+
+TODO: on specific button click, the information is fetched and displays into the content area
+
+TODO: button click fetches information from the respective API 
+    --> on(click) runs getApi function
+TODO: for loop the save individual elements as the variables 
+    --> create the individual element(th)  
+TODO: create getApi function 
+    --> var = requestUrl for one of two APIs and push to page 
+    --> append to specific empty div
+TODO: add checkboxes 

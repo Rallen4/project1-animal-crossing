@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+  <title>Villager Data</title>
+</head>
+<body onload="getVillagers()">
+  <header class="header">
+    <nav class="nav-wrapper">
+      <div class="container">
+        <a href="" class="sidenav-trigger" data-target="mobile-menu">
+          <i class="material-icons">menu icon</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="../index.html">Villager Data Source</a></li>
+            <li><a href="#">Repository</a></li>
+            <li><a href="#">Creators</a></li>
+          </ul>
+          <ul class="sidenav grey lighten-2" id="mobile-menu">
+            <li><a href="../index.html">Villager Data Source</a></li>
+            <li><a href="#">Repository</a></li>
+            <li><a href="#">Creators</a></li>
+          </ul>
+      </div>
+    </nav>
+  </header>
+    <h1 id="village-header">Villager Data Below</h1>
+      <div class="col s8" id="villagerDiv">
+        <!-- Table Header -->
+        <table class="striped" id="villagerTable">
+          <tr>
+            <th id="villager-checkmark"></th>
+            <th id="villager-icon"></th>
+            <th id="villager-name">Name →</th>
+            <th id="villager-personality">Personality →</th>
+            <th id="villager-birthday">Birthday →</th>
+            <th id="villager-hobbies">Hobbies →</th>
+          </tr>
+        </table>
+      </div>
+    
+  <script src="../villager.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</body>
+
+</html>

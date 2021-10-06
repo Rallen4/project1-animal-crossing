@@ -1,0 +1,173 @@
+body {
+    background-size: cover;
+    opacity: 1;
+    font-family:'Roboto',sans-serif;
+}
+
+.header {
+    background-image: url(./img/animals.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 35vh;
+}
+@media  screen and (max-width: 670px) { */
+     .header{ 
+        min-height: 200px;
+    }
+} 
+
+.box-titles{
+    text-align: center;
+    padding: 0%;
+    font-size: 2rem;
+    text-shadow: 0.5px 0.5px rgb(229, 139, 252);
+}
+
+.btn-titles{
+    text-align: center;
+    padding: 0%;
+    text-shadow: 0.5px 0.5px rgb(229, 139, 252);
+}
+
+.filter-btn {
+    justify-content: center;
+}
+.content {
+    text-align: center;
+    text-shadow: 0.5px 0.5px rgb(167, 167, 21);
+    color: rgb(117, 21, 21);
+}
+
+.category-submit:hover {
+    border-color: rgb(172, 184, 6);
+}
+
+.filter-btn:hover {
+    border-color: rgb(172, 184, 6);
+}
+
+.card-1 {
+    /* background-image: url(./img/flowers.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-shadow: 0.7px 0.7px rgb(229, 139, 252);
+    border-style: ridge;
+    justify-content: center;
+    background-color: #FFFFFF;
+
+    /* border-bottom-style:ridge; */
+    
+    min-height: 25vh;
+}
+
+.card-2 {
+    /* background-image: url(./img/flowers.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* text-shadow: 0.7px 0.7px rgb(229, 139, 252); */
+    text-emphasis-color: black;
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-style: ridge;
+    background-color: #FFFFFF;
+    /* max-height: 35vh; */
+    /* border-top-style: ridge; */
+}
+
+button {
+    display:inline-block;
+    padding:1em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 auto;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#0b9287;
+    text-align:center;
+    transition: all 0.2s;
+    min-width: 15vh;
+}
+button:hover{
+    color:#c95252;
+    background-color:#FFFFFF;
+}
+@media all and (max-width:30em){
+    button{
+        display: block;
+        margin: 0.4rem, auto;
+    }
+}
+
+
+.card-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-checkbox {
+    width:5%
+}
+
+#header-img {
+    width: 5%
+}
+
+#header-name {
+    width:20%
+}
+
+#header-location {
+    width:20%
+}
+
+#header-rarity {
+    width: 15%
+}
+
+#header-months {
+    width:15%
+}
+
+.categories{
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryBtn{
+    margin: 5px 10px;
+    /* background-color: rgb(0,128,128,0.6); */
+}
+
+.box-titles{
+    margin: 0px;
+}
+
+.card-action {
+}
+
+#villagerTable{
+    margin: 10px;
+    width: 85%;
+}
+
+#villagerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#villager-name, #villager-birthday, #villager-hobbies, #villager-personality:hover{
+    cursor: pointer;
+}
+
+#village-header {
+    text-align: center;
+    text-shadow: 0.5px 0.5px red;
+}
+
