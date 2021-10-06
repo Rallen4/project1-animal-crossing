@@ -29,10 +29,10 @@ body {
     padding: 3vh;
     z-index: 2;
     text-shadow: 0.5px 0.5px #c95252;
-    color: rgb(100, 26, 4);
+    color: gold;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("./img/flowers.png")
+    /* background-image: url("./img/flowers.png") */
 }
 
 #mod-bod-j {
@@ -65,7 +65,7 @@ body {
 }
 
 
-.mod-bod-r {
+#mod-bod-r {
     border-color: aquamarine;
     border-style: dotted;
     padding: 1vh;
