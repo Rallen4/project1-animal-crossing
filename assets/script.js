@@ -99,7 +99,7 @@ function getFish() {
                 // add class to price cell
                 $(colPrice).addClass("price-item");
                 // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                colPrice.innerText = e.price;
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
@@ -281,19 +281,18 @@ function filterAll() {
             }
         })
     }
-
     // show only Sea
     if (locationSeaEl.checked == true) {
-        $("#location-sea").each(function () {
-            if (!($(this)[0].includes("Sea"))) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].innerText.includes("Sea"))) {
                 $(this).parent().css('display', 'none')
             }
         })
     }
     // show only River
     if (locationRiverEl.checked == true) {
-        $("#location-river").each(function () {
-            if (!($(this)[0].includes("River"))) {
+        $(".location-item").each(function () {
+            if (!($(this)[0].innerText.includes("River"))) {
                 $(this).parent().css('display', 'none')
             }
         })
@@ -301,7 +300,7 @@ function filterAll() {
     // show only Pond
     if (locationPondEl.checked == true) {
         $(".location-item").each(function () {
-            if (!($(this)[0].includes("Pond"))) {
+            if (!($(this)[0].innerText.includes("Pond"))) {
                 $(this).parent().css('display', 'none')
             }
         })
@@ -309,30 +308,30 @@ function filterAll() {
     // show only Pier
     if (locationPierEl.checked == true) {
         $(".location-item").each(function () {
-            if (!($(this)[0].includes("Pier"))) {
+            if (!($(this)[0].innerText.includes("Pier"))) {
                 $(this).parent().css('display', 'none')
             }
         })
     }
     // show only 0-5000
     if (priceFilter0kEl.checked == true) {
-        $(".location-item").each(function () {
-            if ($(this)[0] > 5000) {
+        $(".price-item").each(function () {
+            if ($(this)[0].innerText > 5000) {
                 $(this).parent().css('display', 'none')
             }
         })
     }
     // show only 5001-10000
     if (priceFilter5kEl.checked == true) {
-        $(".location-item").each(function () {
-            if ($(this)[0] < 5000 || $(this)[0] > 9999) {
+        $(".price-item").each(function () {
+            if ($(this)[0].innerText < 5000 || $(this)[0].innerText > 9999) {
                 $(this).parent().css('display', 'none')
             }
         })
     }
     if (priceFilter10kEl.checked == true) {
-        $(".location-item").each(function () {
-            if ($(this)[0] < 10000) {
+        $(".price-item").each(function () {
+            if ($(this)[0].innerText < 10000) {
                 $(this).parent().css('display', 'none')
             }
         })
