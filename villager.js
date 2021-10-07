@@ -417,6 +417,7 @@ function getVillagers(){
             renderVillager(data);
             // pushes all data into empty array as objects
             allVillagers.push(data);
+            console.log(allVillagers)
         });
     }
 }
