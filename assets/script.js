@@ -400,7 +400,7 @@ function renderSeaCreatures() {
         var colCheckbox = newRow.insertCell(0);
         // creates a checkbox in that cell
         colCheckbox.innerHTML = `<label>
-        <input class="sea-creatures" onclick="toggleCompletionSea(event)" type="checkbox" data-completed=false data-sea-id="` + allSeaCreatures[0][i].name['name-USen'] + `"/>
+        <input class="sea-creatures line-item" onclick="toggleCompletionSea(event)" type="checkbox" data-completed=false data-sea-id="` + allSeaCreatures[0][i].name['name-USen'] + `"/>
         <span></span>
         </label>`;
         // insert a cell in the second column "image"
@@ -526,7 +526,7 @@ function renderBugs() {
         var colCheckbox = newRow.insertCell(0)
         // creates a checkbox in that cell
         colCheckbox.innerHTML = `<label>
-        <input class="bugs" onclick="toggleCompletionBug(event)" type="checkbox" data-completed=false data-bug-id="` + allBugs[0][i].name['name-USen'] + `"/>
+        <input class="bugs line-item" onclick="toggleCompletionBug(event)" type="checkbox" data-completed=false data-bug-id="` + allBugs[0][i].name['name-USen'] + `"/>
         <span></span>
       </label>`
         // insert a cell in the second column "image"
@@ -677,7 +677,7 @@ function renderFossils() {
         var colCheckbox = newRow.insertCell(0)
         // creates a checkbox in that cell
         colCheckbox.innerHTML = `<label>
-        <input class="fossils" onclick="toggleCompletionFossil(event)" type="checkbox" data-completed=false data-fossil-id="` + allFossils[0][i].name['name-USen'] + `"/>
+        <input class="fossils line-item" onclick="toggleCompletionFossil(event)" type="checkbox" data-completed=false data-fossil-id="` + allFossils[0][i].name['name-USen'] + `"/>
         <span></span>
         </label>`
         // insert a cell in the second column "image"
@@ -785,7 +785,7 @@ function renderSongs(){
         var colCheckbox = newRow.insertCell(0)
         // creates a checkbox in that cell
         colCheckbox.innerHTML = `<label>
-        <input class="songs" onclick="toggleCompletionSong(event)" type="checkbox" data-completed=false data-song-id="` + allSongs[0][i].name['name-USen'] + `"/>
+        <input class="songs line-item" onclick="toggleCompletionSong(event)" type="checkbox" data-completed=false data-song-id="` + allSongs[0][i].name['name-USen'] + `"/>
         <span></span>
         </label>`
         // insert a cell in the second column "image"
@@ -884,7 +884,7 @@ function renderArt(){
         var colCheckbox = newRow.insertCell(0)
         // creates a checkbox in that cell
         colCheckbox.innerHTML = `<label>
-        <input class="art" onclick="toggleCompletionArt(event)" type="checkbox" data-completed=false data-art-id="` + allArt[0][i].name['name-USen'] + `"/>
+        <input class="art line-item" onclick="toggleCompletionArt(event)" type="checkbox" data-completed=false data-art-id="` + allArt[0][i].name['name-USen'] + `"/>
         <span></span>
       </label>`
         // insert a cell in the second column "image"
@@ -932,8 +932,8 @@ function renderArt(){
         }
 
         console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-art-id"));
-    }
-}
+    };
+};
 
 function bijutsuButtons(){
     var artNameClicked = true;
