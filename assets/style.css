@@ -16,10 +16,6 @@ body {
     }
 } 
 
-#completed-btn, #location-btn, #price-btn, #rarity-btn {
-    margin-bottom: -900px;
-}
-
 
 .modal {
     color: black;
