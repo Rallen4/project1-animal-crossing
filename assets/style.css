@@ -31,7 +31,7 @@ body {
 #title-head {
     padding: 3vh;
     z-index: 2;
-    text-shadow: 0.5px 0.5px lightpink;
+    text-shadow: 0.5px 0.5px black;
     color: rgb(121, 250, 103);
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,8 +41,8 @@ body {
 #mod-bod-title {
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
-    color: rgb(214, 228, 94);
+    text-shadow: 0.3px 0.3px black;
+    color: red;
     min-width: 40vh;
 }
 
@@ -60,8 +60,8 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
-    color: rgb(214, 228, 94);
+    text-shadow: 0.3px 0.3px black;
+    color: red;
     min-width: 40vh;
 }
 
@@ -71,8 +71,8 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
-    color: rgb(214, 228, 94);
+    text-shadow: 0.3px 0.3px black;
+    color: red;
     min-width: 30vh;
 }
 
@@ -82,8 +82,8 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
-    color: rgb(214, 228, 94);
+    text-shadow: 0.3px 0.3px black;
+    color: red;
     min-width: 50vh;
 }
 
@@ -93,8 +93,8 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
-    color: rgb(214, 228, 94);
+    text-shadow: 0.3px 0.3px black;
+    color: red;
     min-width: 20vh;
 }
 
@@ -103,8 +103,8 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
-    color: rgb(214, 228, 94);
+    text-shadow: 0.3px 0.3px black;
+    color: red;
     min-width: 10vh;
 }
 
@@ -113,8 +113,8 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
-    color: rgb(214, 228, 94);
+    text-shadow: 0.3px 0.3px black;
+    color: red;
     min-width: 5vh;
 }
 
@@ -123,7 +123,7 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
+    text-shadow: 0.3px 0.3px black;
     color: red;
     min-width: 5vh;
 }
@@ -133,7 +133,7 @@ body {
     border-style: dotted;
     padding: 1vh;
     z-index: 2;
-    text-shadow: 0.3px 0.3px lightpink;
+    text-shadow: 0.3px 0.3px black;
     color: red;
     min-width: 40vh;
 }
