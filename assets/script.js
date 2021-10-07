@@ -121,7 +121,7 @@ function renderFish() {
         // add class to price cell
         $(colPrice).addClass("price-item");
         // add price to price cell
-        colPrice.innerText = allFish[0][i].price.toLocaleString();
+        colPrice.innerText = allFish[0][i].price;
         // Create Months Cell
         var colMonths = newRow.insertCell(6);
         // add months to months cell
@@ -155,13 +155,11 @@ function sakanaButtons(){
         if (fishNameClicked){
             allFish[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
             fishNameClicked = false;
-            $(this).text($(this).text().slice(0,-2) + " ↑")
         } 
         // if not, then sort Z-A
         else{
             allFish[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
             fishNameClicked = true;
-            $(this).text($(this).text().slice(0,-2) + " ↓")
         }  
         // render fish in the sorted by name array onto page
         renderFish(allFish[0]);
@@ -426,7 +424,7 @@ function renderSeaCreatures() {
         // add class to price cell
         $(colPrice).addClass("price-item");
         // add price to price cell
-        colPrice.innerText = allSeaCreatures[0][i].price.toLocaleString();
+        colPrice.innerText = allSeaCreatures[0][i].price;
         // Create Months Cell
         var colMonths = newRow.insertCell(6);
         // add months to months cell
@@ -462,13 +460,11 @@ function umiButtons(){
         if (seaNameClicked){
             allSeaCreatures[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
             seaNameClicked = false;
-            $(this).text($(this).text().slice(0,-2) + " ↑")
         } 
         // if not, then sort Z-A
         else{
             allSeaCreatures[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
             seaNameClicked = true;
-            $(this).text($(this).text().slice(0,-2) + " ↓")
         }  
         // render fish in the sorted by name array onto page
         renderSeaCreatures(allSeaCreatures[0]);
@@ -481,7 +477,6 @@ function umiButtons(){
         if (seaPriceClicked){
             allSeaCreatures[0].sort((a,b)=> (a.price < b.price ? 1 : -1));
             seaPriceClicked = false;
-            
         }else{
             allSeaCreatures[0].sort((a,b)=> (a.price > b.price ? 1 : -1));
             seaPriceClicked = true;
@@ -514,7 +509,6 @@ function getBugs() {
         })
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
             allBugs.push(data);
             renderBugs();
             mushiButtons();
@@ -559,7 +553,7 @@ function renderBugs() {
         // add class to price cell
         $(colPrice).addClass("price-item")
         // add price to price cell
-        colPrice.innerText = allBugs[0][i].price.toLocaleString();
+        colPrice.innerText = allBugs[0][i].price;
         // Create Months Cell
         var colMonths = newRow.insertCell(6);
         // add months to months cell
@@ -593,7 +587,6 @@ function mushiButtons(){
         if (bugNameClicked){
             allBugs[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
             bugNameClicked = false;
-            $(this).text($(this).text().slice(0,-2) + " ↑")
         } 
         // if not, then sort Z-A
         else{
@@ -740,13 +733,11 @@ function kasekiButtons (){
         if (fossilNameClicked){
             allFossils[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
             fossilNameClicked = false;
-            $(this).text($(this).text().slice(0,-2) + " ↑")
         } 
         // if not, then sort Z-A
         else{
             allFossils[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
             fossilNameClicked = true;
-            $(this).text($(this).text().slice(0,-2) + " ↓")
         }  
         // render fossils in the sorted by name array onto page
         renderFossils(allFossils[0]);
@@ -853,13 +844,11 @@ function utaButtons (){
         if (songNameClicked){
             allSongs[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
             songNameClicked = false;
-            $(this).text($(this).text().slice(0,-2) + " ↑")
         } 
         // if not, then sort Z-A
         else{
             allSongs[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
             songNameClicked = true;
-            $(this).text($(this).text().slice(0,-2) + " ↓")
         }  
         // render songs in the sorted by name array onto page
         renderSongs(allSongs[0]);
@@ -887,7 +876,6 @@ function getArt() {
 function renderArt(){
     DeleteRows();
     for (let i = 0; i < allArt[0].length; i++) {
-        const element = allArt[0][i];
         // create new row under the header
         var newRow = mainContent.insertRow(1);
         // inserts a cell in the first column "checkbox"
@@ -956,13 +944,11 @@ function bijutsuButtons(){
         if (artNameClicked){
             allArt[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
             artNameClicked = false;
-            $(this).text($(this).text().slice(0,-2) + " ↑")
         } 
         // if not, then sort Z-A
         else{
             allArt[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
             artNameClicked = true;
-            $(this).text($(this).text().slice(0,-2) + " ↓")
         }  
         // render songs in the sorted by name array onto page
         renderArt(allArt[0]);
