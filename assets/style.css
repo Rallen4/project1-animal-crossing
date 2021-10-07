@@ -10,16 +10,159 @@ body {
     background-position: center;
     min-height: 35vh;
 }
-@media  screen and (max-width: 670px) { */
+@media  screen and (max-width: 670px) { 
      .header{ 
         min-height: 200px;
     }
 } 
 
+#completed-btn, #location-btn, #price-btn, #rarity-btn {
+    margin-bottom: -900px;
+}
 
+
+.modal {
+    color: black;
+    z-index: 2;
+    text-align: center;
+    text-shadow: #c95252;
+    background-image: url(./img/modal2.jpg);
+    background-size: cover;
+}
+
+
+
+#title-head {
+    padding: 3vh;
+    z-index: 2;
+    text-shadow: 0.5px 0.5px lightpink;
+    color: rgb(121, 250, 103);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 60vh;
+}
+
+#mod-bod-title {
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 40vh;
+}
+
+#mod-bod-h {
+    padding: 2vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px red;
+    color: rgb(121, 250, 103);
+    min-width: 60vh;
+    font-size: 20px;
+}
+
+#mod-bod-j {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 40vh;
+}
+
+
+#mod-bod-k {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 30vh;
+}
+
+
+#mod-bod-c {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 50vh;
+}
+
+
+#mod-bod-r {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 20vh;
+}
+
+#mod-bod-a {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 10vh;
+}
+
+#mod-bod-e {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: rgb(214, 228, 94);
+    min-width: 5vh;
+}
+
+#mod-bod-close {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: red;
+    min-width: 5vh;
+}
+
+#mod-title-close {
+    border-color: aquamarine;
+    border-style: dotted;
+    padding: 1vh;
+    z-index: 2;
+    text-shadow: 0.3px 0.3px lightpink;
+    color: red;
+    min-width: 40vh;
+}
+
+
+.box-titles{
+    text-align: center;
+    padding: 0%;
+    font-size: 23px;
+    text-shadow: 0.2px 0.2px rgb(229, 139, 252);
+    justify-content: center;
+}
+
+.btn-titles{
+    text-align: center;
+    padding: 0%;
+    text-shadow: 0.3px 0.3px rgb(229, 139, 252);
+}
+
+.filter-btn {
+    justify-content: center;
+}
 .content {
     text-align: center;
-    text-shadow: 0.5px 0.5px rgb(167, 167, 21);
+    text-shadow: 0.1px 0.1px rgb(167, 167, 21);
     color: rgb(117, 21, 21);
 }
 
@@ -32,31 +175,22 @@ body {
 }
 
 .card-1 {
-    background-image: url(./img/flowers.png);
     background-size: cover;
     background-repeat: no-repeat;
-    text-shadow: 0.7px 0.7px rgb(25, 165, 153);
+    text-shadow: 0.7px 0.7px rgb(229, 139, 252);
     border-style: ridge;
     justify-content: center;
-    background-color: rgb(198, 248, 221);
-    /* border-bottom-style:ridge; */
-    
-    /* min-height: 35vh; */
+    background-color: #FFFFFF;
+    min-height: 15vh;
 }
 
-
 .card-2 {
-    background-image: url(./img/flowers.png);
+ 
     background-size: cover;
     background-repeat: no-repeat;
-    /* text-shadow: 0.7px 0.7px rgb(25, 165, 153); */
     text-emphasis-color: black;
-    /* min-height: 35vh; */
-    justify-content: center;
-    align-items: center;
     border-style: ridge;
-    background-color: rgb(198, 248, 221);
-    /* border-top-style: ridge; */
+    background-color: #FFFFFF;
 }
 
 button {
@@ -125,8 +259,7 @@ button:hover{
 }
 
 .categoryBtn{
-    margin: 5px 10px;
-    /* background-color: rgb(0,128,128,0.6); */
+    margin: 5px 5px;
 }
 
 .box-titles{
@@ -144,12 +277,19 @@ button:hover{
     align-items: center;
 }
 
-#villager-name, #villager-birthday, #villager-hobbies, #villager-personality:hover{
+#header-name, #header-location, #header-rarity, #header-price, #header-months, #villager-name, #villager-birthday, #villager-hobbies, #villager-personality:hover{
     cursor: pointer;
 }
 
 #village-header {
     text-align: center;
-    text-shadow: 0.5px 0.5px red;
+    text-shadow: 0.3px 0.3px red;
+    font-size: 40px;
+}
+
+#village-header-arrow {
+    text-align: center;
+    text-shadow: 0.3px 0.3px red;
+    font-size: 20px;
 }
 

@@ -22,13 +22,42 @@
           <i class="material-icons">menu icon</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="./pages/villagers.html">Villager Data Source</a></li>
-          <li><a href="#">Repository</a></li>
-          <li><a href="#">Creators</a></li>
+          <li><a href="https://github.com/Rallen4/project1-animal-crossing">Repository</a></li>
+          
+          <a class="waves-effect waves-light btn modal-trigger" button data-target="creator-modal" class="modal-push" id="mod-btn">Creators</button></a>
+
+          <div id="creator-modal" class="modal">
+            <div class="modal-content">
+              <button id="mod-bod-h">↑↓ MEET THE TEAM ↓↑</button><br>
+              <button id="mod-bod-c">Charlotte Hulseman</button><br>
+              <button id="mod-bod-j">Jonathan Newman</button><br>
+              <button id="mod-bod-k">Kellie Kumasaka</button><br>
+              <button id="mod-bod-r">Ryan Allen</button><br>
+              <button id="mod-bod-a">←↑↓→</button><br>
+              <button onclick="location.reload()" id="mod-bod-close" class="modal-close">CLOSE</onclick=>
+            </div>
+          </div>
+
         </ul>
         <ul class="sidenav grey lighten-2" id="mobile-menu">
           <li><a href="./pages/villagers.html">Villager Data Source</a></li>
           <li><a href="#">Repository</a></li>
           <li><a href="#">Creators</a></li>
+        </ul>
+        <ul class="left hide-on-med-and-down">
+          <a class="waves-effect waves-light btn modal-trigger" button data-target="title-modal" class="title-push" id="title-btn">AC:NC Island Manager</button></a>
+
+          <div id="title-modal" class="modal">
+            <div class="title-content">
+              <h4 id="title-head">ABOUT ISLAND MANAGER</h4>
+              <button id="mod-bod-title">Manage Your Island</button><br>
+              <button id="mod-bod-title">Track Your Progress</button><br>
+              <button id="mod-bod-title">Discover More Items</button><br>
+              <button id="mod-bod-title">Enjoy!</button><br>
+              <button onclick="location.reload()" id="mod-title-close" class="modal-close">CLOSE</onclick=>
+            </div>
+
+          </div>
         </ul>
       </div>
     </nav>
@@ -45,17 +74,19 @@
         </div>
         <div class="card-content">
           <!-- Category Title -->
-          <h3 class="box-titles">Category</h3>
-          <!-- Category Options -->
-          <ul class="list-group">
-            <!-- Option 1 -->
-            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFish()">Fish</a>
-            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSeaCreatures()">Sea Creatures</a>
-            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getBugs()">Bugs</a>
-            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFossils()">Fossils</a>
-            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSongs()">Songs</a>
-            <a class="waves-effect waves-light btn-small categoryBtn" onclick="getArt()">Art</a>
-          </ul>
+          <h3 class="box-titles">Category
+
+            <!-- Category Options -->
+            <ul class="list-group">
+              <!-- Option 1 -->
+              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFish()">Fish</a>
+              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSeaCreatures()">Sea</a>
+              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getBugs()">Bug</a>
+              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getFossils()">Fossil</a>
+              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getSongs()">Song</a>
+              <a class="waves-effect waves-light btn-small categoryBtn" onclick="getArt()">Art</a>
+            </ul>
+          </h3>
         </div>
       </div>
 
@@ -70,102 +101,137 @@
         <div class="card-content">
 
           <!-- Filter Title -->
-          <h3 class="box-titles">Filter</h3>
+          <h3 class="box-titles">Filter
+            
+            <!-- Filter Options -->
+            <!-- completed filters -->
+            <div id="completed-btn" class="row filter-line">
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="name" />
+                  <span>Hide Completed</span>
+                </label>
+              </p>
+            </div>
+            
+            <!-- location filters (fish)-->
+            <div id="location-btn" class="row filter-line">
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-river"/>
+                  <span>River</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-pond"/>
+                  <span>Pond</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-sea"/>
+                  <span>Sea</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-pier"/>
+                  <span>Pier</span>
+                </label>
+              </p>
+            </div>
 
-          <!-- Filter Options -->
-          <!-- completed filters -->
-          <div id="completed-btn" class="filter-line">
-            <p>
-              <label>
-                <input type="checkbox" class="checkboxes" id="name" />
-                <span>Completed</span>
-              </label>
-            </p>
-          </div>
+            <!-- location filters (bugs) -->
+            <div id="location-btn" class="row filter-line">
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-rocks"/>
+                  <span>Rocks</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-ground"/>
+                  <span>Ground</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-trees"/>
+                  <span>Trees</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-flying"/>
+                  <span>Flying</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="location-other"/>
+                  <span>Other</span>
+                </label>
+              </p>
+            </div>
 
-          <!-- location filters -->
-          <div id="location-btn" class="row filter-line">
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="location-river"/>
-                <span>River</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="location-pond"/>
-                <span>Pond</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="location-sea"/>
-                <span>Sea</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="location-pier"/>
-                <span>Pier</span>
-              </label>
-            </p>
+            <!-- price filters -->
+            <div id="price-btn" class="row filter-line">
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="price-filter-0k"/>
+                  <span>0-5k</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="price-filter-5k"/>
+                  <span>5K-10K</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="price-filter-10k"/>
+                  <span>10K+</span>
+                </label>
+              </p>
+            </div>
+            
+            <!-- rarity filters -->
+            <div id="rarity-btn" class="row filter-line">
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="rarity-common"/>
+                  <span>Common</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="rarity-uncommon"/>
+                  <span>Uncommon</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="rarity-rare"/>
+                  <span>Rare</span>
+                </label>
+              </p>
+              <p class="col s-3">
+                <label>
+                  <input type="checkbox" class="checkboxes" id="rarity-ultra-rare"/>
+                  <span>Ultra-Rare</span>
+                </label>
+              </p>
+            </div>
+          </h3>
           </div>
           
-          <!-- price filters -->
-          <div id="price-btn" class="row filter-line">
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="price-filter-0k"/>
-                <span>0-5k</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="price-filter-5k"/>
-                <span>5K-10K</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="price-filter-10k"/>
-                <span>10K+</span>
-              </label>
-            </p>
-          </div>
-          
-          <!-- rarity filters -->
-          <div id="rarity-btn" class="row filter-line">
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="rarity-common"/>
-                <span>Common</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="rarity-uncommon"/>
-                <span>Uncommon</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="rarity-rare"/>
-                <span>Rare</span>
-              </label>
-            </p>
-            <p class="col s-3">
-              <label>
-                <input type="checkbox" class="checkboxes" id="rarity-ultra-rare"/>
-                <span>Ultra-Rare</span>
-              </label>
-            </p>
-          </div>
-        </div>
-        
-        <!-- Filter Submit -->
-        <div class="card-action">
+          <!-- Filter Submit -->
+        <div class="btn-titles">
           <button onclick="filterAll()" class="filter-btn">Filter</button>
-          <button onclick="location.reload()" class="filter-btn">Refresh</button>
+          <button onclick="location.reload()" class="refresh-btn">Refresh</button>
         </div>
       </div>
     </div>
