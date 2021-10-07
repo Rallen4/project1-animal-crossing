@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Animal
+# AC:NH Island Manager
 
 ## Description
 - This Website was built to help end-users keep track of their villages and manage their collectibles of all the different parts of Animal Crossing: New Horizons in one central hub.
@@ -51,8 +50,3 @@ https://rallen4.github.io/project1-animal-crossing/
     - https://github.com/charlottehulseman
 #
 ### with the help of our teacher, teachers assistants, and tutors.
-=======
-# Animal Crossing New Horizons Island Manager
-
-Our end 
->>>>>>> dev
