@@ -1,4 +1,5 @@
 var villagerTable = document.querySelector("#villagerTable");
+var villagerLocalStorage = JSON.parse(localStorage.getItem("villagerCollection")) || []
 var allVillagers = [];
 var villagers = [
   "Admiral",
@@ -429,28 +430,23 @@ function getVillagers(){
             renderVillager(data);
             // pushes all data into empty array as objects
             allVillagers.push(data);
-<<<<<<< HEAD
         })
     }}
     localStorage.setItem("allVillagers", JSON.stringify(allVillagers));
     renderManyVillagers(allVillagers);
-=======
-            console.log(allVillagers)
-        });
-    }
->>>>>>> d87808ce4fff27db58666f8dd38da453bf149c2a
 }
 
 
 // function to put villagers data on page
-function renderVillager(data) {
+function renderVillager(data, index, checked) {
     // create new row for villager
     var newRow = villagerTable.insertRow(1);
     var colCheckbox = newRow.insertCell(0);
     // creates a checkbox in that cell
     colCheckbox.innerHTML = `<label>
-      <input id="villagerCheck" onclick="toggleCompletion()" type="checkbox" data-completed= false/>
-      <span></span>
+      <input id="villagerCheck${index}" type="checkbox" class="villagerList line-item" ${checked ==="true" ? "checked":""} data-completed=false>
+      <span> </span>
+      </input>
       </label>`;
     var colImg = newRow.insertCell(1);
     // populating cell with img
@@ -472,9 +468,25 @@ function renderVillager(data) {
 // renders the villagers from array to the page
 function renderManyVillagers(allVillagers) {
     for (let i = 0; i < allVillagers.length; i++) {
+        var storageChecked = localStorage.getItem("villagerCheck"+[i])
         // puts villager info from the empty, now full, array onto page
-        renderVillager(allVillagers[i]);
+        renderVillager(allVillagers[i], i, storageChecked);
     }
+    $(".villagerList").click(function(){
+        var tempStorage = localStorage.getItem($(this).attr("id"))
+        if (tempStorage = undefined){
+            localStorage.setItem($(this).attr("id"),$(this)[0].checked)
+        }
+        console.log(localStorage.getItem($(this).attr("id")))
+        localStorage.setItem($(this).attr("id"),$(this)[0].checked)
+        // if (localStorage.getItem($(this).attr("id"))===undefined){
+        //     console.log("iran")
+        // localStorage.setItem($(this).attr("id"),$(this)[0].checked)
+        // }
+        // else if (localStorage.getItem($(this).attr("id"))===true){
+            // localStorage.setItem($(this).attr("id"),$(this)[0].checked)
+        // }
+    })
 }
 
 // set clicked value to true
