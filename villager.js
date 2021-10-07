@@ -402,8 +402,20 @@ function DeleteVillagerRows() {
     }
 }
 
+function toggleCompletion(event) {
+
+    localStorage.setItem("allVillagers", JSON.stringify(allVillagers));
+};
+
 // fetches data from API
 function getVillagers(){
+    if (localStorage.getItem("allVillagers"))
+    {
+        console.log("if")
+        allVillagers = JSON.parse(localStorage.getItem("allVillagers"))
+    }
+    else {
+        console.log("else")
     // loop to get all villagers individual data
     for (i = 0; i < villagers.length; i++) {
       var villagerUrl =
@@ -417,9 +429,12 @@ function getVillagers(){
             renderVillager(data);
             // pushes all data into empty array as objects
             allVillagers.push(data);
-        });
-    }
+        })
+    }}
+    localStorage.setItem("allVillagers", JSON.stringify(allVillagers));
+    renderManyVillagers(allVillagers);
 }
+
 
 // function to put villagers data on page
 function renderVillager(data) {
@@ -428,7 +443,7 @@ function renderVillager(data) {
     var colCheckbox = newRow.insertCell(0);
     // creates a checkbox in that cell
     colCheckbox.innerHTML = `<label>
-      <input id="villagerCheck" onclick="toggleCompletion()" type="checkbox" data-completed: false/>
+      <input id="villagerCheck" onclick="toggleCompletion()" type="checkbox" data-completed= false/>
       <span></span>
       </label>`;
     var colImg = newRow.insertCell(1);
