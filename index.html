@@ -23,7 +23,21 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="./pages/villagers.html">Villager Data Source</a></li>
           <li><a href="https://github.com/Rallen4/project1-animal-crossing">Repository</a></li>
-          <li><a href="#">Creators</a></li>
+          
+          <a class="waves-effect waves-light btn modal-trigger" button data-target="creator-modal" class="modal-push" id="mod-btn">Creators</button></a>
+
+          <div id="creator-modal" class="modal">
+            <div class="modal-content">
+              <h4 id="modal-head">Cheers From the Team!</h4>
+              <button id="mod-bod-c">Charlotte Hulseman</button><br>
+              <button id="mod-bod-j">Jonathan Newman</button><br>
+              <button id="mod-bod-k">Kellie Kumasaka</button><br>
+              <button id="mod-bod-r">Ryan Allen</button><br>
+              <button id="mod-bod-a">←↑↓→</button><br>
+              <button onclick="location.reload()" id="mod-bod-close" class="modal-close">CLOSE</onclick=>
+            </div>
+          </div>
+
         </ul>
         <ul class="sidenav grey lighten-2" id="mobile-menu">
           <li><a href="./pages/villagers.html">Villager Data Source</a></li>
@@ -31,7 +45,19 @@
           <li><a href="#">Creators</a></li>
         </ul>
         <ul class="left hide-on-med-and-down">
-          <li><a href="#">AC:NC Island Manager</a></li>
+          <a class="waves-effect waves-light btn modal-trigger" button data-target="title-modal" class="title-push" id="title-btn">AC:NC Island Manager</button></a>
+
+          <div id="title-modal" class="modal">
+            <div class="title-content">
+              <h4 id="title-head">ABOUT THE PROJECT</h4>
+              <button id="mod-bod-title">Manage Your Island</button>
+              <button id="mod-bod-title">Track Your Progress</button>
+              <button id="mod-bod-title">Discover More Items</button>
+              <button id="mod-bod-title">Enjoy!</button><br>
+              <button onclick="location.reload()" id="mod-title-close" class="modal-close">CLOSE</onclick=>
+            </div>
+
+          </div>
         </ul>
       </div>
     </nav>

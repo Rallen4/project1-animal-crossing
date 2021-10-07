@@ -62,7 +62,6 @@ function getFish() {
             data = Object.values(data);
             allFish.push(data);
             renderFish();
-            clearClicking();
             sakanaButtons();
         });
 };
@@ -120,7 +119,6 @@ function renderFish() {
         }
     }
 }
-
 
 function sakanaButtons(){
     var fishNameClicked = true;
@@ -199,6 +197,7 @@ function sakanaButtons(){
         }  
         renderFish(allFish[0]);
     })
+    clearClicking();
 }
 
 var rarityCommonEl = document.getElementById("rarity-common");
@@ -320,6 +319,7 @@ function filterAll() {
 }
 
 function getSeaCreatures() {
+    clearClicking();
     DeleteRows();
     // define URL for API
     var requestUrl = "https://acnhapi.com/v1/sea/";
@@ -333,12 +333,13 @@ function getSeaCreatures() {
             data = Object.values(data);
             allSeaCreatures.push(data)
             renderSeaCreatures();
-            clearClicking();
+            // clearClicking();
             umiButtons();
         })
 }
 
 function renderSeaCreatures() {
+    // clearClicking();
     DeleteRows();
     for (let i = 0; i < allSeaCreatures[0].length; i++) {
         var newRow = mainContent.insertRow(1);
@@ -388,11 +389,11 @@ function renderSeaCreatures() {
 }
 
 function clearClicking(){
-    document.querySelector("#header-name").setAttribute("onclick", ' ')
-    document.querySelector("#header-location").setAttribute("onclick", ' ')
-    document.querySelector("#header-rarity").setAttribute("onclick", ' ')
-    document.querySelector("#header-price").setAttribute("onclick", ' ')
-    document.querySelector("#header-months").setAttribute("onclick", ' ')
+    document.querySelector("#header-name").removeEventListener('click')
+    document.querySelector("#header-location").removeEventListener('click')
+    document.querySelector("#header-rarity").removeEventListener('click')
+    document.querySelector("#header-price").removeEventListener('click')
+    document.querySelector("#header-months").removeEventListener('click')
 }
 
 function umiButtons(){
@@ -835,3 +836,11 @@ function getArt() {
         }
         )
 }
+
+$('#mod-btn').on('click', function() {
+    $('#creator-modal').show();
+});
+
+$('#title-btn').on('click', function() {
+    $('#title-modal').show();
+});
