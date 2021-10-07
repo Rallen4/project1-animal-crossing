@@ -6,6 +6,24 @@ var allFossils = [];
 var allArt = [];
 var allSongs = [];
 
+var rarityCommonEl = document.getElementById("rarity-common");
+var rarityRareEl = document.getElementById("rarity-rare")
+var rarityUncommonEl = document.getElementById("rarity-uncommon")
+var rarityUltraRareEl = document.getElementById("rarity-ultra-rare")
+var locationSeaEl = document.getElementById("location-sea")
+var locationRiverEl = document.getElementById("location-river")
+var locationPondEl = document.getElementById("location-pond")
+var locationPierEl = document.getElementById("location-pier")
+var locationRocksEl = document.getElementById("location-rocks")
+var locationGroundEl = document.getElementById("location-ground")
+var locationTreesEl = document.getElementById("location-trees")
+var locationFlyingEl = document.getElementById("location-flying")
+var locationOtherEl = document.getElementById("location-other")
+var priceFilter0kEl = document.getElementById("price-filter-0k")
+var priceFilter5kEl = document.getElementById("price-filter-5k")
+var priceFilter10kEl = document.getElementById("price-filter-10k")
+
+
 function DeleteRows() {
     var rowCount = mainContent.rows.length;
     for (var i = rowCount - 1; i > 0; i--) {
@@ -213,12 +231,10 @@ var priceFilter5kEl = document.getElementById("price-filter-5k")
 var priceFilter10kEl = document.getElementById("price-filter-10k")
 
 function filterAll() {
-    // console.log($(".rarity-item"));
 
     // filter out completed items
     if ($("#name")[0].checked == true) {
         $(".line-item").each(function () {
-            // console.log($(this)[0].checked)
             if ($(this)[0].checked == true) {
                 $(this).parent().parent().parent().css("display", "none")
             }
@@ -228,7 +244,6 @@ function filterAll() {
     // Show only Common
     if (rarityCommonEl.checked == true) {
         $(".rarity-item").each(function () {
-            console.log($(this).innerText);
             if ($(this)[0].innerText !== "Common") {
                 $(this).parent().css("display", "none")
             }
@@ -307,6 +322,7 @@ function filterAll() {
             }
         })
     }
+    // show only 10000+
     if (priceFilter10kEl.checked == true) {
         $(".price-item").each(function () {
             if ($(this)[0].innerText < 10000) {
@@ -314,7 +330,46 @@ function filterAll() {
             }
         })
     }
-
+    // show only rocks
+    if (locationRocksEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("rock"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only Ground
+    if (locationGroundEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("ground"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only Trees
+    if (locationTreesEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("tree"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only flying
+    if (locationFlyingEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("Flying"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only Other
+    if (locationOtherEl.checked == true) {
+        $(".location-item").each(function () {
+            if(($(this)[0].innerText.includes("rock")) || ($(this)[0].innerText.includes("tree")) || ($(this)[0].innerText.includes("ground"))) {
+                $(this).parent().css("display", "none")
+            } 
+        })
+    }
 
 }
 
