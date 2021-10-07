@@ -148,9 +148,6 @@ button:hover{
     margin: 0px;
 }
 
-.card-action {
-}
-
 #villagerTable{
     margin: 10px;
     width: 85%;
@@ -162,7 +159,7 @@ button:hover{
     align-items: center;
 }
 
-#villager-name, #villager-birthday, #villager-hobbies, #villager-personality:hover{
+#header-name, #header-location, #header-rarity, #header-price, #header-months, #villager-name, #villager-birthday, #villager-hobbies, #villager-personality:hover{
     cursor: pointer;
 }
 
