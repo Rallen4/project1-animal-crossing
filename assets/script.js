@@ -62,6 +62,7 @@ function getFish() {
             data = Object.values(data);
             allFish.push(data);
             renderFish();
+            clearClicking();
             sakanaButtons();
         });
 };
@@ -127,7 +128,7 @@ function sakanaButtons(){
     var fishPriceClicked = true;
     var fishMonthsClicked = true;
 
-    document.querySelector("#header-name").addEventListener("click", function(event) {
+    $("#header-name").on("click", function(event) {
         // click to sort by name
         event.preventDefault();
         // deletes the previously rendered rows 
@@ -146,7 +147,7 @@ function sakanaButtons(){
         renderFish(allFish[0]);
     })
 
-    document.querySelector("#header-location").addEventListener("click",function (event) {
+    $("#header-location").on("click",function (event) {
         event.preventDefault();
         DeleteRows();
         if (fishLocationClicked){
@@ -159,7 +160,7 @@ function sakanaButtons(){
         renderFish(allFish[0]);
     })
 
-    document.querySelector("#header-rarity").addEventListener("click",function (event) {
+    $("#header-rarity").on("click",function (event) {
         event.preventDefault();
         DeleteRows();
         if (fishRarityClicked){
@@ -172,7 +173,7 @@ function sakanaButtons(){
         renderFish(allFish[0]);
     })
 
-    document.querySelector("#header-price").addEventListener("click",function (event) {
+    $("#header-price").on("click",function (event) {
         event.preventDefault();
         DeleteRows();
         if (fishPriceClicked){
@@ -185,7 +186,7 @@ function sakanaButtons(){
         renderFish(allFish[0]);
     })
 
-    document.querySelector("#header-months").addEventListener("click",function (event) {
+    $("#header-months").on("click",function (event) {
         event.preventDefault();
         DeleteRows();
         if (fishMonthsClicked){
@@ -197,7 +198,6 @@ function sakanaButtons(){
         }  
         renderFish(allFish[0]);
     })
-    clearClicking();
 }
 
 var rarityCommonEl = document.getElementById("rarity-common");
@@ -318,9 +318,9 @@ function filterAll() {
 
 }
 
-function getSeaCreatures() {
-    clearClicking();
+function getSeaCreatures() { 
     DeleteRows();
+    clearClicking();
     // define URL for API
     var requestUrl = "https://acnhapi.com/v1/sea/";
     // fetching data of API
@@ -333,13 +333,11 @@ function getSeaCreatures() {
             data = Object.values(data);
             allSeaCreatures.push(data)
             renderSeaCreatures();
-            // clearClicking();
             umiButtons();
         })
 }
 
 function renderSeaCreatures() {
-    // clearClicking();
     DeleteRows();
     for (let i = 0; i < allSeaCreatures[0].length; i++) {
         var newRow = mainContent.insertRow(1);
@@ -389,16 +387,16 @@ function renderSeaCreatures() {
 }
 
 function clearClicking(){
-    document.querySelector("#header-name").removeEventListener('click')
-    document.querySelector("#header-location").removeEventListener('click')
-    document.querySelector("#header-rarity").removeEventListener('click')
-    document.querySelector("#header-price").removeEventListener('click')
-    document.querySelector("#header-months").removeEventListener('click')
+    $("#header-name").off()
+    $("#header-location").off()
+    $("#header-rarity").off()
+    $("#header-price").off()
+    $("#header-months").off()
 }
 
 function umiButtons(){
     var seaNameClicked = true;
-    document.querySelector("#header-name").setAttribute("onclick", function(event) {
+    $("#header-name").on("click", function(event) {
         // click to sort by name
         event.preventDefault();
         // deletes the previously rendered rows 
@@ -416,21 +414,9 @@ function umiButtons(){
         // render fish in the sorted by name array onto page
         renderSeaCreatures(allSeaCreatures[0]);
     })
-
-    document.querySelector("#header-location").setAttribute("onclick",function (event) {
-        event.preventDefault();
-        DeleteRows();
-        renderSeaCreatures(allSeaCreatures[0]);
-    })
-
-    document.querySelector("#header-rarity").setAttribute("onclick",function (event) {
-        event.preventDefault();
-        DeleteRows();
-        renderSeaCreatures(allSeaCreatures[0]);
-    })
     
     var seaPriceClicked = true;
-    document.querySelector("#header-price").setAttribute("onclick",function (event) {
+    $("#header-price").on("click",function (event) {
         event.preventDefault();
         DeleteRows();
         if (seaPriceClicked){
@@ -444,7 +430,7 @@ function umiButtons(){
     })
     
     var seaMonthsClicked = true;
-    document.querySelector("#header-months").setAttribute("onclick",function (event) {
+    $("#header-months").on("click",function (event) {
         event.preventDefault();
         DeleteRows();
         if (seaMonthsClicked){
@@ -459,7 +445,8 @@ function umiButtons(){
 }
 
 function getBugs() {
-    DeleteRows()
+    clearClicking();
+    DeleteRows();
     var requestUrl = "https://acnhapi.com/v1/bugs/"
     fetch(requestUrl)
         .then(function (response) {
@@ -469,125 +456,149 @@ function getBugs() {
             data = Object.values(data);
             console.log(data);
             allBugs.push(data);
-            // renderBugs();
-            $(data).each(function (i, e) {
-                // create new row under the header
-                var newRow = mainContent.insertRow(1);
-                // inserts a cell in the first column "checkbox"
-                var colCheckbox = newRow.insertCell(0)
-                // creates a checkbox in that cell
-                colCheckbox.innerHTML = `<label>
-                <input class="bugs" onclick="toggleCompletionBug(event)" type="checkbox" data-completed=false data-bug-id="` + e.name['name-USen'] + `"/>
-                <span></span>
-              </label>`
-                // insert a cell in the second column "image"
-                var colImg = newRow.insertCell(1);
-                // populating cell with img
-                colImg.innerHTML = `<img src="` + e.image_uri + `" style="width:48px" alt="item img">`;
-                // create Name cell
-                var colName = newRow.insertCell(2);
-                // add name to name cell
-                colName.innerText = e.name['name-USen'];
-                // create Location cell
-                var colLocation = newRow.insertCell(3);
-                // add class to Location
-                $(colLocation).addClass("location-item")
-                // add Location to Location Cell
-                colLocation.innerText = e.availability.location;
-                // Create Rarity cell
-                var colRarity = newRow.insertCell(4);
-                // add class to rarity
-                $(colRarity).addClass("rarity-item")
-                // add rarity to rarity cell
-                colRarity.innerText = e.availability.rarity;
-                // create price cell
-                var colPrice = newRow.insertCell(5);
-                // add class to price cell
-                $(colPrice).addClass("price-item")
-                // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
-                // Create Months Cell
-                var colMonths = newRow.insertCell(6);
-                // add months to months cell
-                colMonths.innerText = e.availability["month-northern"];
-
-                var bugName = e.name['name-USen'];
-                console.log(bugName);
-                var checkbox = document.querySelector(`input[data-bug-id="` + bugName + `"]`);
-                console.log(checkbox, checkbox.checked)
-                var bugValue = localStorage.getItem(bugName)
-                console.log(bugValue, typeof bugValue);
-
-                if (localStorage.getItem(bugName) == undefined) {
-                    localStorage.setItem(bugName, checkbox.checked);
-                } else {
-                    checkbox.checked = bugValue == "true"
-                }
-
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-bug-id"));
-            });
-
+            renderBugs();
+            mushiButtons();
         }
         )
 }
 
-// function renderBugs() {
-//     DeleteRows();
-//     for (let i = 0; i < allBugs[0].length; i++) {
-//         // create new row under the header
-//         var newRow = mainContent.insertRow(1);
-//         // inserts a cell in the first column "checkbox"
-//         var colCheckbox = newRow.insertCell(0)
-//         // creates a checkbox in that cell
-//         colCheckbox.innerHTML = `<label>
-//         <input class="bugs" onclick="toggleCompletionBug(event)" type="checkbox" data-completed=false data-bug-id="` + allBugs[0][i].name['name-USen'] + `"/>
-//         <span></span>
-//       </label>`
-//         // insert a cell in the second column "image"
-//         var colImg = newRow.insertCell(1);
-//         // populating cell with img
-//         colImg.innerHTML = `<img src="` + allBugs[0][i].image_uri + `" style="width:48px" alt="item img">`;
-//         // create Name cell
-//         var colName = newRow.insertCell(2);
-//         // add name to name cell
-//         colName.innerText = allBugs[0][i].name['name-USen'];
-//         // create Location cell
-//         var colLocation = newRow.insertCell(3);
-//         // add class to Location
-//         $(colLocation).addClass("location-item")
-//         // add Location to Location Cell
-//         colLocation.innerText = allBugs[0][i].availability.location;
-//         // Create Rarity cell
-//         var colRarity = newRow.insertCell(4);
-//         // add class to rarity
-//         $(colRarity).addClass("rarity-item")
-//         // add rarity to rarity cell
-//         colRarity.innerText = allBugs[0][i].availability.rarity;
-//         // create price cell
-//         var colPrice = newRow.insertCell(5);
-//         // add class to price cell
-//         $(colPrice).addClass("price-item")
-//         // add price to price cell
-//         colPrice.innerText = allBugs[0][i].price.toLocaleString();
-//         // Create Months Cell
-//         var colMonths = newRow.insertCell(6);
-//         // add months to months cell
-//         colMonths.innerText = allBugs[0][i].availability["month-northern"];
+function renderBugs() {
+    DeleteRows();
+    for (let i = 0; i < allBugs[0].length; i++) {
+        // create new row under the header
+        var newRow = mainContent.insertRow(1);
+        // inserts a cell in the first column "checkbox"
+        var colCheckbox = newRow.insertCell(0)
+        // creates a checkbox in that cell
+        colCheckbox.innerHTML = `<label>
+        <input class="bugs" onclick="toggleCompletionBug(event)" type="checkbox" data-completed=false data-bug-id="` + allBugs[0][i].name['name-USen'] + `"/>
+        <span></span>
+      </label>`
+        // insert a cell in the second column "image"
+        var colImg = newRow.insertCell(1);
+        // populating cell with img
+        colImg.innerHTML = `<img src="` + allBugs[0][i].image_uri + `" style="width:48px" alt="item img">`;
+        // create Name cell
+        var colName = newRow.insertCell(2);
+        // add name to name cell
+        colName.innerText = allBugs[0][i].name['name-USen'];
+        // create Location cell
+        var colLocation = newRow.insertCell(3);
+        // add class to Location
+        $(colLocation).addClass("location-item")
+        // add Location to Location Cell
+        colLocation.innerText = allBugs[0][i].availability.location;
+        // Create Rarity cell
+        var colRarity = newRow.insertCell(4);
+        // add class to rarity
+        $(colRarity).addClass("rarity-item")
+        // add rarity to rarity cell
+        colRarity.innerText = allBugs[0][i].availability.rarity;
+        // create price cell
+        var colPrice = newRow.insertCell(5);
+        // add class to price cell
+        $(colPrice).addClass("price-item")
+        // add price to price cell
+        colPrice.innerText = allBugs[0][i].price.toLocaleString();
+        // Create Months Cell
+        var colMonths = newRow.insertCell(6);
+        // add months to months cell
+        colMonths.innerText = allBugs[0][i].availability["month-northern"];
 
-//         var bugName = allBugs[0][i].name['name-USen'];
-//         var checkbox = document.querySelector(`input[data-bug-id="` + bugName + `"]`);
-//         var bugValue = localStorage.getItem(bugName)
+        var bugName = allBugs[0][i].name['name-USen'];
+        var checkbox = document.querySelector(`input[data-bug-id="` + bugName + `"]`);
+        var bugValue = localStorage.getItem(bugName)
 
-//         if (localStorage.getItem(bugName) == undefined) {
-//             localStorage.setItem(bugName, checkbox.checked);
-//         } else {
-//             checkbox.checked = bugValue == "true"
-//         }
-//     }
-// }
+        if (localStorage.getItem(bugName) == undefined) {
+            localStorage.setItem(bugName, checkbox.checked);
+        } else {
+            checkbox.checked = bugValue == "true"
+        }
+    }
+}
+
+function mushiButtons(){
+    var bugNameClicked = true;
+    var bugLocationClicked = true;
+    var bugRarityClicked = true;
+    var bugPriceClicked = true;
+    var bugMonthsClicked = true;
+
+    $("#header-name").on("click", function(event) {
+        // click to sort by name
+        event.preventDefault();
+        // deletes the previously rendered rows 
+        DeleteRows();
+        // if the first row is lower than the second row then sort by A-Z
+        if (bugNameClicked){
+            allBugs[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
+            bugNameClicked = false;
+        } 
+        // if not, then sort Z-A
+        else{
+            allBugs[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
+            bugNameClicked = true;
+        }  
+        // render fish in the sorted by name array onto page
+        renderBugs(allBugs[0]);
+    })
+
+    $("#header-location").on("click",function (event) {
+        event.preventDefault();
+        DeleteRows();
+        if (bugLocationClicked){
+            allBugs[0].sort((a,b)=> (a.availability.location < b.availability.location ? 1 : -1));
+            bugLocationClicked = false;
+        }else{
+            allBugs[0].sort((a,b)=> (a.availability.location > b.availability.location ? 1 : -1));
+            bugLocationClicked = true;
+        }  
+        renderBugs(allBugs[0]);
+    })
+
+    $("#header-rarity").on("click",function (event) {
+        event.preventDefault();
+        DeleteRows();
+        if (bugRarityClicked){
+            allBugs[0].sort((a,b)=> (a.availability.rarity < b.availability.rarity ? 1 : -1));
+            bugRarityClicked = false;
+        }else{
+            allBugs[0].sort((a,b)=> (a.availability.rarity > b.availability.rarity ? 1 : -1));
+            bugRarityClicked = true;
+        }  
+        renderBugs(allBugs[0]);
+    })
+
+    $("#header-price").on("click",function (event) {
+        event.preventDefault();
+        DeleteRows();
+        if (bugPriceClicked){
+            allBugs[0].sort((a,b)=> (a.price < b.price ? 1 : -1));
+            bugPriceClicked = false;
+        }else{
+            allBugs[0].sort((a,b)=> (a.price > b.price ? 1 : -1));
+            bugPriceClicked = true;
+        }  
+        renderBugs(allBugs[0]);
+    })
+
+    $("#header-months").on("click",function (event) {
+        event.preventDefault();
+        DeleteRows();
+        if (bugMonthsClicked){
+            allBugs[0].sort((a,b)=> (a.availability["month-northern"] < b.availability["month-northern"] ? 1 : -1));
+            bugMonthsClicked = false;
+        }else{
+            allBugs[0].sort((a,b)=> (a.availability["month-northern"] > b.availability["month-northern"] ? 1 : -1));
+            bugMonthsClicked = true;
+        }  
+        renderBugs(allBugs[0]);
+    })
+}
 
 function getFossils() {
-    DeleteRows()
+    DeleteRows();
+    clearClicking();
     var requestUrl = "https://acnhapi.com/v1/fossils/"
     fetch(requestUrl)
         .then(function (response) {
@@ -595,8 +606,9 @@ function getFossils() {
         })
         .then(function (data) {
             data = Object.values(data);
-            allFossils.push(data)
+            allFossils.push(data);
             renderFossils();
+            kasekiButtons();
         }
         )
 }
@@ -645,11 +657,8 @@ function renderFossils() {
         colMonths.innerText = "N/A";
 
         var fossilName = allFossils[0][i].name['name-USen'];
-        console.log(fossilName);
         var checkbox = document.querySelector(`input[data-fossil-id="` + fossilName + `"]`);
-        console.log(checkbox, checkbox.checked)
         var fossilValue = localStorage.getItem(fossilName)
-        console.log(fossilValue, typeof fossilValue);
 
         if (localStorage.getItem(fossilName) == undefined) {
             localStorage.setItem(fossilName, checkbox.checked);
@@ -659,42 +668,45 @@ function renderFossils() {
     }
 }
 
-// var fossilNameClicked = true;
-// document.querySelector("#header-name").addEventListener("click", function(event) {
-//     // click to sort by name
-//     event.preventDefault();
-//     // deletes the previously rendered rows 
-//     DeleteRows();
-//     // if the first row is lower than the second row then sort by A-Z
-//     if (fossilNameClicked){
-//         allFossils[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
-//         fossilNameClicked = false;
-//     } 
-//     // if not, then sort Z-A
-//     else{
-//         allFossils[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
-//         fossilNameClicked = true;
-//     }  
-//     // render fish in the sorted by name array onto page
-//     renderFossils(allFossils[0]);
-// })
+function kasekiButtons (){
+    var fossilNameClicked = true;
+    $("#header-name").on("click", function(event) {
+        // click to sort by name
+        event.preventDefault();
+        // deletes the previously rendered rows 
+        DeleteRows();
+        // if the first row is lower than the second row then sort by A-Z
+        if (fossilNameClicked){
+            allFossils[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
+            fossilNameClicked = false;
+        } 
+        // if not, then sort Z-A
+        else{
+            allFossils[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
+            fossilNameClicked = true;
+        }  
+        // render fossils in the sorted by name array onto page
+        renderFossils(allFossils[0]);
+    })
 
-// var fossilPriceClicked = true;
-// document.querySelector("#header-price").addEventListener("click",function (event) {
-//     event.preventDefault();
-//     DeleteRows();
-//     if (fossilPriceClicked){
-//         allFossils[0].sort((a,b)=> (a.price < b.price ? 1 : -1));
-//         fossilPriceClicked = false;
-//     }else{
-//         allFossils[0].sort((a,b)=> (a.price > b.price ? 1 : -1));
-//         fossilPriceClicked = true;
-//     }  
-//     renderFossils(allFossils[0]);
-// })
+    var fossilPriceClicked = true;
+    $("#header-price").on("click",function (event) {
+        event.preventDefault();
+        DeleteRows();
+        if (fossilPriceClicked){
+            allFossils[0].sort((a,b)=> (a.price < b.price ? 1 : -1));
+            fossilPriceClicked = false;
+        }else{
+            allFossils[0].sort((a,b)=> (a.price > b.price ? 1 : -1));
+            fossilPriceClicked = true;
+        }  
+        renderFossils(allFossils[0]);
+    })
+}
 
 function getSongs() {
-    DeleteRows()
+    DeleteRows();
+    clearClicking();
     var requestUrl = "https://acnhapi.com/v1/songs/"
     fetch(requestUrl)
         .then(function (response) {
@@ -702,71 +714,97 @@ function getSongs() {
         })
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
-
-            $(data).each(function (i, e) {
-                // create new row under the header
-                var newRow = mainContent.insertRow(1);
-                // inserts a cell in the first column "checkbox"
-                var colCheckbox = newRow.insertCell(0)
-                // creates a checkbox in that cell
-                colCheckbox.innerHTML = `<label>
-                <input class="songs" onclick="toggleCompletionSong(event)" type="checkbox" data-completed=false data-song-id="` + e.name['name-USen'] + `"/>
-                <span></span>
-              </label>`
-                // insert a cell in the second column "image"
-                var colImg = newRow.insertCell(1);
-                // populating cell with img
-                colImg.innerHTML = `<img src="` + e.image_uri + `" style="width:48px" alt="item img">`;
-                // create Name cell
-                var colName = newRow.insertCell(2);
-                // add name to name cell
-                colName.innerText = e.name['name-USen'];
-                // create Location cell
-                var colLocation = newRow.insertCell(3);
-                // add class to Location
-                $(colLocation).addClass("location-item")
-                // add Location to Location Cell
-                colLocation.innerText = "N/A";
-                // Create Rarity cell
-                var colRarity = newRow.insertCell(4);
-                // add class to rarity
-                $(colRarity).addClass("rarity-item")
-                // add rarity to rarity cell
-                colRarity.innerText = "N/A";
-                // create price cell
-                var colPrice = newRow.insertCell(5);
-                // add class to price cell
-                $(colPrice).addClass("price-item")
-                // add price to price cell: Fix this!!!!!
-                colPrice.innerText = "N/A";
-                // Create Months Cell
-                var colMonths = newRow.insertCell(6);
-                // add months to months cell
-                colMonths.innerText = "N/A";
-
-                var songName = e.name['name-USen'];
-                console.log(songName);
-                var checkbox = document.querySelector(`input[data-song-id="` + songName + `"]`);
-                console.log(checkbox, checkbox.checked)
-                var songValue = localStorage.getItem(songName)
-                console.log(songValue, typeof songValue);
-
-                if (localStorage.getItem(songName) == undefined) {
-                    localStorage.setItem(songName, checkbox.checked);
-                } else {
-                    checkbox.checked = songValue == "true"
-                }
-
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-song-id"));
-            });
-
+            allSongs.push(data);
+            renderSongs();
+            utaButtons();
         }
         )
 }
 
+function renderSongs(){
+    DeleteRows();
+    for (let i = 0; i < allSongs[0].length; i++) {
+        // create new row under the header
+        var newRow = mainContent.insertRow(1);
+        // inserts a cell in the first column "checkbox"
+        var colCheckbox = newRow.insertCell(0)
+        // creates a checkbox in that cell
+        colCheckbox.innerHTML = `<label>
+        <input class="songs" onclick="toggleCompletionSong(event)" type="checkbox" data-completed=false data-song-id="` + allSongs[0][i].name['name-USen'] + `"/>
+        <span></span>
+        </label>`
+        // insert a cell in the second column "image"
+        var colImg = newRow.insertCell(1);
+        // populating cell with img
+        colImg.innerHTML = `<img src="` + allSongs[0][i].image_uri + `" style="width:48px" alt="item img">`;
+        // create Name cell
+        var colName = newRow.insertCell(2);
+        // add name to name cell
+        colName.innerText = allSongs[0][i].name['name-USen'];
+        // create Location cell
+        var colLocation = newRow.insertCell(3);
+        // add class to Location
+        $(colLocation).addClass("location-item")
+        // add Location to Location Cell
+        colLocation.innerText = "N/A";
+        // Create Rarity cell
+        var colRarity = newRow.insertCell(4);
+        // add class to rarity
+        $(colRarity).addClass("rarity-item")
+        // add rarity to rarity cell
+        colRarity.innerText = "N/A";
+        // create price cell
+        var colPrice = newRow.insertCell(5);
+        // add class to price cell
+        $(colPrice).addClass("price-item")
+        // add price to price cell: Fix this!!!!!
+        colPrice.innerText = "N/A"
+        // Create Months Cell
+        var colMonths = newRow.insertCell(6);
+        // add months to months cell
+        colMonths.innerText = "N/A";
+
+        var songName = allSongs[0][i].name['name-USen'];
+        console.log(songName);
+        var checkbox = document.querySelector(`input[data-song-id="` + songName + `"]`);
+        console.log(checkbox, checkbox.checked)
+        var songValue = localStorage.getItem(songName)
+        console.log(songValue, typeof songValue);
+
+        if (localStorage.getItem(songName) == undefined) {
+            localStorage.setItem(songName, checkbox.checked);
+        } else {
+            checkbox.checked = songValue == "true"
+        }
+    }
+}
+
+function utaButtons (){
+    var songNameClicked = true;
+    $("#header-name").on("click", function(event) {
+        // click to sort by name
+        event.preventDefault();
+        // deletes the previously rendered rows 
+        DeleteRows();
+        // if the first row is lower than the second row then sort by A-Z
+        if (songNameClicked){
+            allSongs[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
+            songNameClicked = false;
+        } 
+        // if not, then sort Z-A
+        else{
+            allSongs[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
+            songNameClicked = true;
+        }  
+        // render songs in the sorted by name array onto page
+        renderSongs(allSongs[0]);
+    })
+}
+
+
 function getArt() {
-    DeleteRows()
+    DeleteRows();
+    clearClicking();
     var requestUrl = "https://acnhapi.com/v1/art/"
     fetch(requestUrl)
         .then(function (response) {
@@ -774,67 +812,94 @@ function getArt() {
         })
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
-
-            $(data).each(function (i, e) {
-                // create new row under the header
-                var newRow = mainContent.insertRow(1);
-                // inserts a cell in the first column "checkbox"
-                var colCheckbox = newRow.insertCell(0)
-                // creates a checkbox in that cell
-                colCheckbox.innerHTML = `<label>
-                <input class="art" onclick="toggleCompletionArt(event)" type="checkbox" data-completed=false data-art-id="` + e.name['name-USen'] + `"/>
-                <span></span>
-              </label>`
-                // insert a cell in the second column "image"
-                var colImg = newRow.insertCell(1);
-                // populating cell with img
-                colImg.innerHTML = `<img src="` + e.image_uri + `" style="width:48px" alt="item img">`;
-                // create Name cell
-                var colName = newRow.insertCell(2);
-                // add name to name cell
-                colName.innerText = e.name['name-USen'];
-                // create Location cell
-                var colLocation = newRow.insertCell(3);
-                // add class to Location
-                $(colLocation).addClass("location-item")
-                // add Location to Location Cell
-                colLocation.innerText = "N/A";
-                // Create Rarity cell
-                var colRarity = newRow.insertCell(4);
-                // add class to rarity
-                $(colRarity).addClass("rarity-item")
-                // add rarity to rarity cell
-                colRarity.innerText = "N/A";
-                // create price cell
-                var colPrice = newRow.insertCell(5);
-                // add class to price cell
-                $(colPrice).addClass("price-item")
-                // add price to price cell
-                colPrice.innerText = "N/A";
-                // Create Months Cell
-                var colMonths = newRow.insertCell(6);
-                // add months to months cell
-                colMonths.innerText = "N/A";
-
-                var artName = e.name['name-USen'];
-                console.log(artName);
-                var checkbox = document.querySelector(`input[data-art-id="` + artName + `"]`);
-                console.log(checkbox, checkbox.checked)
-                var artValue = localStorage.getItem(artName)
-                console.log(artValue, typeof artValue);
-
-                if (localStorage.getItem(artName) == undefined) {
-                    localStorage.setItem(artName, checkbox.checked);
-                } else {
-                    checkbox.checked = artValue == "true"
-                }
-
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-art-id"));
-            });
-
+            allArt.push(data);
+            renderArt();
+            bijutsuButtons();
         }
         )
+}
+
+function renderArt(){
+    DeleteRows();
+    for (let i = 0; i < allArt[0].length; i++) {
+        const element = allArt[0][i];
+        // create new row under the header
+        var newRow = mainContent.insertRow(1);
+        // inserts a cell in the first column "checkbox"
+        var colCheckbox = newRow.insertCell(0)
+        // creates a checkbox in that cell
+        colCheckbox.innerHTML = `<label>
+        <input class="art" onclick="toggleCompletionArt(event)" type="checkbox" data-completed=false data-art-id="` + allArt[0][i].name['name-USen'] + `"/>
+        <span></span>
+      </label>`
+        // insert a cell in the second column "image"
+        var colImg = newRow.insertCell(1);
+        // populating cell with img
+        colImg.innerHTML = `<img src="` + allArt[0][i].image_uri + `" style="width:48px" alt="item img">`;
+        // create Name cell
+        var colName = newRow.insertCell(2);
+        // add name to name cell
+        colName.innerText = allArt[0][i].name['name-USen'];
+        // create Location cell
+        var colLocation = newRow.insertCell(3);
+        // add class to Location
+        $(colLocation).addClass("location-item")
+        // add Location to Location Cell
+        colLocation.innerText = "N/A";
+        // Create Rarity cell
+        var colRarity = newRow.insertCell(4);
+        // add class to rarity
+        $(colRarity).addClass("rarity-item")
+        // add rarity to rarity cell
+        colRarity.innerText = "N/A";
+        // create price cell
+        var colPrice = newRow.insertCell(5);
+        // add class to price cell
+        $(colPrice).addClass("price-item")
+        // add price to price cell
+        colPrice.innerText = "N/A";
+        // Create Months Cell
+        var colMonths = newRow.insertCell(6);
+        // add months to months cell
+        colMonths.innerText = "N/A";
+
+        var artName = allArt[0][i].name['name-USen'];
+        console.log(artName);
+        var checkbox = document.querySelector(`input[data-art-id="` + artName + `"]`);
+        console.log(checkbox, checkbox.checked)
+        var artValue = localStorage.getItem(artName)
+        console.log(artValue, typeof artValue);
+
+        if (localStorage.getItem(artName) == undefined) {
+            localStorage.setItem(artName, checkbox.checked);
+        } else {
+            checkbox.checked = artValue == "true"
+        }
+
+        console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-art-id"));
+    }
+}
+
+function bijutsuButtons(){
+    var artNameClicked = true;
+    $("#header-name").on("click", function(event) {
+        // click to sort by name
+        event.preventDefault();
+        // deletes the previously rendered rows 
+        DeleteRows();
+        // if the first row is lower than the second row then sort by A-Z
+        if (artNameClicked){
+            allArt[0].sort((a,b)=> (a.name["name-USen"] < b.name["name-USen"] ? 1 : -1));
+            artNameClicked = false;
+        } 
+        // if not, then sort Z-A
+        else{
+            allArt[0].sort((a,b)=> (a.name["name-USen"] > b.name["name-USen"] ? 1 : -1));
+            artNameClicked = true;
+        }  
+        // render songs in the sorted by name array onto page
+        renderArt(allArt[0]);
+    })
 }
 
 $('#mod-btn').on('click', function() {
