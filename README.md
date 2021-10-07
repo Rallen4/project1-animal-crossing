@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Animal
 
 ## Description
@@ -50,3 +51,8 @@ https://rallen4.github.io/project1-animal-crossing/
     - https://github.com/charlottehulseman
 #
 ### with the help of our teacher, teachers assistants, and tutors.
+=======
+# Animal Crossing New Horizons Island Manager
+
+Our end 
+>>>>>>> dev
