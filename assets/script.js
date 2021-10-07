@@ -5,6 +5,24 @@ var allBugs = [];
 var allFossils = [];
 var allNames = [];
 
+var rarityCommonEl = document.getElementById("rarity-common");
+var rarityRareEl = document.getElementById("rarity-rare")
+var rarityUncommonEl = document.getElementById("rarity-uncommon")
+var rarityUltraRareEl = document.getElementById("rarity-ultra-rare")
+var locationSeaEl = document.getElementById("location-sea")
+var locationRiverEl = document.getElementById("location-river")
+var locationPondEl = document.getElementById("location-pond")
+var locationPierEl = document.getElementById("location-pier")
+var locationRocksEl = document.getElementById("location-rocks")
+var locationGroundEl = document.getElementById("location-ground")
+var locationTreesEl = document.getElementById("location-trees")
+var locationFlyingEl = document.getElementById("location-flying")
+var locationOtherEl = document.getElementById("location-other")
+var priceFilter0kEl = document.getElementById("price-filter-0k")
+var priceFilter5kEl = document.getElementById("price-filter-5k")
+var priceFilter10kEl = document.getElementById("price-filter-10k")
+
+
 function DeleteRows() {
     var rowCount = mainContent.rows.length;
     for (var i = rowCount - 1; i > 0; i--) {
@@ -61,7 +79,6 @@ function getFish() {
         .then(function (data) {
             data = Object.values(data);
             allFish.push(data)
-            // console.log(allFish)
 
             $(data).each(function (i, e) {
                 // create new row under the header
@@ -84,19 +101,19 @@ function getFish() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add class to Location
-                $(colLocation).addClass("location-item")
+                $(colLocation).addClass("location-item");
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add class to rarity
-                $(colRarity).addClass("rarity-item")
+                $(colRarity).addClass("rarity-item");
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
                 // add class to price cell
-                $(colPrice).addClass("price-item")
+                $(colPrice).addClass("price-item");
                 // add price to price cell
                 colPrice.innerText = e.price;
                 // Create Months Cell
@@ -117,25 +134,11 @@ function getFish() {
         });
 };
 
-var rarityCommonEl = document.getElementById("rarity-common");
-var rarityRareEl = document.getElementById("rarity-rare")
-var rarityUncommonEl = document.getElementById("rarity-uncommon")
-var rarityUltraRareEl = document.getElementById("rarity-ultra-rare")
-var locationSeaEl = document.getElementById("location-sea")
-var locationRiverEl = document.getElementById("location-river")
-var locationPondEl = document.getElementById("location-pond")
-var locationPierEl = document.getElementById("location-pier")
-var priceFilter0kEl = document.getElementById("price-filter-0k")
-var priceFilter5kEl = document.getElementById("price-filter-5k")
-var priceFilter10kEl = document.getElementById("price-filter-10k")
-
 function filterAll() {
-    // console.log($(".rarity-item"));
 
     // filter out completed items
     if ($("#name")[0].checked == true) {
         $(".line-item").each(function () {
-            // console.log($(this)[0].checked)
             if ($(this)[0].checked == true) {
                 $(this).parent().parent().parent().css("display", "none")
             }
@@ -145,7 +148,6 @@ function filterAll() {
     // Show only Common
     if (rarityCommonEl.checked == true) {
         $(".rarity-item").each(function () {
-            console.log($(this).innerText);
             if ($(this)[0].innerText !== "Common") {
                 $(this).parent().css("display", "none")
             }
@@ -224,6 +226,7 @@ function filterAll() {
             }
         })
     }
+    // show only 10000+
     if (priceFilter10kEl.checked == true) {
         $(".price-item").each(function () {
             if ($(this)[0].innerText < 10000) {
@@ -231,7 +234,46 @@ function filterAll() {
             }
         })
     }
-
+    // show only rocks
+    if (locationRocksEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("rock"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only Ground
+    if (locationGroundEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("ground"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only Trees
+    if (locationTreesEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("tree"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only flying
+    if (locationFlyingEl.checked == true) {
+        $(".location-item").each(function () {
+            if(!($(this)[0].innerText.includes("Flying"))) {
+                $(this).parent().css("display", "none")
+            }
+        })
+    }
+    // show only Other
+    if (locationOtherEl.checked == true) {
+        $(".location-item").each(function () {
+            if(($(this)[0].innerText.includes("rock")) || ($(this)[0].innerText.includes("tree")) || ($(this)[0].innerText.includes("ground"))) {
+                $(this).parent().css("display", "none")
+            } 
+        })
+    }
 
 }
 
@@ -269,21 +311,21 @@ function getSeaCreatures() {
                 // create Location cell
                 var colLocation = newRow.insertCell(3);
                 // add class to Location
-                $(colLocation).addClass("location-item")
+                $(colLocation).addClass("location-item");
                 // add Location to Location Cell
                 colLocation.innerText = e.availability.location;
                 // Create Rarity cell
                 var colRarity = newRow.insertCell(4);
                 // add class to rarity
-                $(colRarity).addClass("rarity-item")
+                $(colRarity).addClass("rarity-item");
                 // add rarity to rarity cell
                 colRarity.innerText = e.availability.rarity;
                 // create price cell
                 var colPrice = newRow.insertCell(5);
                 // add class to price cell
-                $(colPrice).addClass("price-item")
+                $(colPrice).addClass("price-item");
                 // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                colPrice.innerText = e.price;
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
@@ -292,17 +334,13 @@ function getSeaCreatures() {
                 var seaName = e.name['name-USen'];
                 console.log(seaName);
                 var checkbox = document.querySelector(`input[data-sea-id="` + seaName + `"]`);
-                console.log(checkbox, checkbox.checked)
                 var seaValue = localStorage.getItem(seaName)
-                console.log(seaValue, typeof seaValue);
 
                 if (localStorage.getItem(seaName) == undefined) {
                     localStorage.setItem(seaName, checkbox.checked);
                 } else {
                     checkbox.checked = seaValue == "true"
                 }
-
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-sea-id"));
             });
 
         }
@@ -319,7 +357,6 @@ function getBugs() {
         })
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
 
             $(data).each(function (i, e) {
                 // create new row under the header
@@ -356,26 +393,21 @@ function getBugs() {
                 // add class to price cell
                 $(colPrice).addClass("price-item")
                 // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                colPrice.innerText = e.price;
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = e.availability["month-northern"];
 
                 var bugName = e.name['name-USen'];
-                console.log(bugName);
                 var checkbox = document.querySelector(`input[data-bug-id="` + bugName + `"]`);
-                console.log(checkbox, checkbox.checked)
                 var bugValue = localStorage.getItem(bugName)
-                console.log(bugValue, typeof bugValue);
 
                 if (localStorage.getItem(bugName) == undefined) {
                     localStorage.setItem(bugName, checkbox.checked);
                 } else {
                     checkbox.checked = bugValue == "true"
                 }
-
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-bug-id"));
             });
 
         }
@@ -391,7 +423,6 @@ function getFossils() {
         })
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
 
             $(data).each(function (i, e) {
                 // create new row under the header
@@ -428,18 +459,15 @@ function getFossils() {
                 // add class to price cell
                 $(colPrice).addClass("price-item")
                 // add price to price cell
-                colPrice.innerText = e.price.toLocaleString();
+                colPrice.innerText = e.price;
                 // Create Months Cell
                 var colMonths = newRow.insertCell(6);
                 // add months to months cell
                 colMonths.innerText = "N/A";
 
                 var fossilName = e.name['name-USen'];
-                console.log(fossilName);
                 var checkbox = document.querySelector(`input[data-fossil-id="` + fossilName + `"]`);
-                console.log(checkbox, checkbox.checked)
                 var fossilValue = localStorage.getItem(fossilName)
-                console.log(fossilValue, typeof fossilValue);
 
                 if (localStorage.getItem(fossilName) == undefined) {
                     localStorage.setItem(fossilName, checkbox.checked);
@@ -447,7 +475,6 @@ function getFossils() {
                     checkbox.checked = fossilValue == "true"
                 }
 
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-fossil-id"));
             });
 
         }
@@ -463,7 +490,6 @@ function getSongs() {
         })
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
 
             $(data).each(function (i, e) {
                 // create new row under the header
@@ -507,11 +533,8 @@ function getSongs() {
                 colMonths.innerText = "N/A";
 
                 var songName = e.name['name-USen'];
-                console.log(songName);
                 var checkbox = document.querySelector(`input[data-song-id="` + songName + `"]`);
-                console.log(checkbox, checkbox.checked)
                 var songValue = localStorage.getItem(songName)
-                console.log(songValue, typeof songValue);
 
                 if (localStorage.getItem(songName) == undefined) {
                     localStorage.setItem(songName, checkbox.checked);
@@ -519,7 +542,6 @@ function getSongs() {
                     checkbox.checked = songValue == "true"
                 }
 
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-song-id"));
             });
 
         }
@@ -535,7 +557,6 @@ function getArt() {
         })
         .then(function (data) {
             data = Object.values(data);
-            console.log(data);
 
             $(data).each(function (i, e) {
                 // create new row under the header
@@ -579,11 +600,8 @@ function getArt() {
                 colMonths.innerText = "N/A";
 
                 var artName = e.name['name-USen'];
-                console.log(artName);
                 var checkbox = document.querySelector(`input[data-art-id="` + artName + `"]`);
-                console.log(checkbox, checkbox.checked)
                 var artValue = localStorage.getItem(artName)
-                console.log(artValue, typeof artValue);
 
                 if (localStorage.getItem(artName) == undefined) {
                     localStorage.setItem(artName, checkbox.checked);
@@ -591,7 +609,6 @@ function getArt() {
                     checkbox.checked = artValue == "true"
                 }
 
-                console.log(colCheckbox.getElementsByTagName("input")[0].getAttribute("data-art-id"));
             });
 
         }
